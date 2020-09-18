@@ -1,0 +1,118 @@
+
+skeleton.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm_L
+  rotate: true
+  xy: 129, 365
+  size: 96, 34
+  orig: 96, 34
+  offset: 0, 0
+  index: -1
+arm_R
+  rotate: false
+  xy: 300, 333
+  size: 57, 45
+  orig: 57, 45
+  offset: 0, 0
+  index: -1
+belt
+  rotate: false
+  xy: 165, 344
+  size: 73, 32
+  orig: 73, 32
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 368
+  size: 93, 125
+  orig: 93, 125
+  offset: 0, 0
+  index: -1
+brain
+  rotate: true
+  xy: 411, 321
+  size: 74, 84
+  orig: 74, 84
+  offset: 0, 0
+  index: -1
+femur_L
+  rotate: false
+  xy: 414, 397
+  size: 84, 101
+  orig: 84, 101
+  offset: 0, 0
+  index: -1
+femur_R
+  rotate: true
+  xy: 303, 380
+  size: 53, 106
+  orig: 53, 106
+  offset: 0, 0
+  index: -1
+fire
+  rotate: true
+  xy: 128, 326
+  size: 37, 32
+  orig: 37, 32
+  offset: 0, 0
+  index: -1
+fist_r
+  rotate: false
+  xy: 359, 353
+  size: 31, 25
+  orig: 31, 25
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 167, 434
+  size: 134, 64
+  orig: 134, 64
+  offset: 0, 0
+  index: -1
+leg_L
+  rotate: true
+  xy: 2, 302
+  size: 64, 110
+  orig: 64, 110
+  offset: 0, 0
+  index: -1
+leg_R
+  rotate: true
+  xy: 303, 435
+  size: 63, 109
+  orig: 63, 109
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 463
+  size: 163, 35
+  orig: 163, 35
+  offset: 0, 0
+  index: -1
+shoulder_L
+  rotate: false
+  xy: 240, 362
+  size: 58, 70
+  orig: 58, 70
+  offset: 0, 0
+  index: -1
+shoulder_R
+  rotate: true
+  xy: 165, 378
+  size: 54, 73
+  orig: 54, 73
+  offset: 0, 0
+  index: -1
+sleeve
+  rotate: false
+  xy: 114, 363
+  size: 12, 3
+  orig: 12, 3
+  offset: 0, 0
+  index: -1

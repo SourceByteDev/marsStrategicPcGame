@@ -1,0 +1,181 @@
+
+skeleton.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 293
+  size: 256, 175
+  orig: 256, 175
+  offset: 0, 0
+  index: -1
+claw_1
+  rotate: false
+  xy: 403, 53
+  size: 75, 73
+  orig: 75, 73
+  offset: 0, 0
+  index: -1
+claw_2
+  rotate: false
+  xy: 70, 4
+  size: 29, 113
+  orig: 29, 113
+  offset: 0, 0
+  index: -1
+claw_3
+  rotate: true
+  xy: 2, 217
+  size: 74, 130
+  orig: 74, 130
+  offset: 0, 0
+  index: -1
+claw_backdrop_1
+  rotate: false
+  xy: 419, 466
+  size: 90, 44
+  orig: 90, 44
+  offset: 0, 0
+  index: -1
+claw_backdrop_2
+  rotate: false
+  xy: 337, 28
+  size: 64, 98
+  orig: 64, 98
+  offset: 0, 0
+  index: -1
+claw_backdrop_3
+  rotate: false
+  xy: 257, 234
+  size: 130, 55
+  orig: 130, 55
+  offset: 0, 0
+  index: -1
+hand_back_1
+  rotate: false
+  xy: 400, 268
+  size: 110, 44
+  orig: 110, 44
+  offset: 0, 0
+  index: -1
+hand_back_2
+  rotate: true
+  xy: 401, 314
+  size: 95, 104
+  orig: 95, 104
+  offset: 0, 0
+  index: -1
+hand_back_3
+  rotate: true
+  xy: 401, 411
+  size: 53, 109
+  orig: 53, 109
+  offset: 0, 0
+  index: -1
+hand_back_backdrop_1
+  rotate: true
+  xy: 70, 119
+  size: 96, 62
+  orig: 96, 62
+  offset: 0, 0
+  index: -1
+hand_back_backdrop_2
+  rotate: true
+  xy: 385, 128
+  size: 50, 119
+  orig: 50, 119
+  offset: 0, 0
+  index: -1
+hand_back_backdrop_3
+  rotate: false
+  xy: 186, 24
+  size: 51, 102
+  orig: 51, 102
+  offset: 0, 0
+  index: -1
+hand_front_1
+  rotate: false
+  xy: 403, 3
+  size: 70, 48
+  orig: 70, 48
+  offset: 0, 0
+  index: -1
+hand_front_2
+  rotate: true
+  xy: 134, 159
+  size: 60, 120
+  orig: 60, 120
+  offset: 0, 0
+  index: -1
+hand_front_3
+  rotate: true
+  xy: 257, 160
+  size: 72, 126
+  orig: 72, 126
+  offset: 0, 0
+  index: -1
+hand_front_backdrop_1
+  rotate: false
+  xy: 2, 161
+  size: 65, 54
+  orig: 65, 54
+  offset: 0, 0
+  index: -1
+hand_front_backdrop_2
+  rotate: true
+  xy: 134, 221
+  size: 70, 121
+  orig: 70, 121
+  offset: 0, 0
+  index: -1
+hand_front_backdrop_3
+  rotate: true
+  xy: 389, 180
+  size: 86, 120
+  orig: 86, 120
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 239, 26
+  size: 100, 96
+  orig: 100, 96
+  offset: 0, 0
+  index: -1
+jaw
+  rotate: false
+  xy: 260, 291
+  size: 138, 112
+  orig: 138, 112
+  offset: 0, 0
+  index: -1
+jaw_1
+  rotate: true
+  xy: 2, 11
+  size: 115, 66
+  orig: 115, 66
+  offset: 0, 0
+  index: -1
+neck
+  rotate: true
+  xy: 260, 405
+  size: 63, 139
+  orig: 63, 139
+  offset: 0, 0
+  index: -1
+prickle
+  rotate: true
+  xy: 101, 14
+  size: 103, 83
+  orig: 103, 83
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 470
+  size: 415, 40
+  orig: 415, 40
+  offset: 0, 0
+  index: -1

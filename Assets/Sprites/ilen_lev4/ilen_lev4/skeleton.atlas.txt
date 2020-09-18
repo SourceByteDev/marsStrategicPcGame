@@ -1,0 +1,118 @@
+
+skeleton.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+belly
+  rotate: false
+  xy: 229, 457
+  size: 111, 51
+  orig: 111, 51
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 309
+  size: 145, 89
+  orig: 145, 89
+  offset: 0, 0
+  index: -1
+bolid
+  rotate: false
+  xy: 2, 494
+  size: 32, 14
+  orig: 32, 14
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 149, 275
+  size: 178, 105
+  orig: 178, 105
+  offset: 0, 0
+  index: -1
+leg
+  rotate: false
+  xy: 103, 400
+  size: 120, 62
+  orig: 120, 62
+  offset: 0, 0
+  index: -1
+leg backdrop
+  rotate: false
+  xy: 111, 464
+  size: 116, 44
+  orig: 116, 44
+  offset: 0, 0
+  index: -1
+leg backdrop_1
+  rotate: true
+  xy: 225, 382
+  size: 69, 142
+  orig: 69, 142
+  offset: 0, 0
+  index: -1
+leg_1
+  rotate: true
+  xy: 342, 453
+  size: 55, 162
+  orig: 55, 162
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 369, 358
+  size: 115, 93
+  orig: 115, 93
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 36, 491
+  size: 33, 17
+  orig: 33, 17
+  offset: 0, 0
+  index: -1
+tail_1
+  rotate: false
+  xy: 71, 485
+  size: 38, 23
+  orig: 38, 23
+  offset: 0, 0
+  index: -1
+tail_2
+  rotate: false
+  xy: 2, 421
+  size: 99, 62
+  orig: 99, 62
+  offset: 0, 0
+  index: -1
+wing_1
+  rotate: true
+  xy: 2, 168
+  size: 105, 235
+  orig: 105, 235
+  offset: 0, 0
+  index: -1
+wing_1_backdrop
+  rotate: false
+  xy: 239, 55
+  size: 267, 134
+  orig: 267, 134
+  offset: 0, 0
+  index: -1
+wing_2
+  rotate: false
+  xy: 2, 2
+  size: 203, 164
+  orig: 203, 164
+  offset: 0, 0
+  index: -1
+wing_2_backdrop
+  rotate: true
+  xy: 329, 191
+  size: 165, 171
+  orig: 165, 171
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 5f0d1d5d79404394b8067a6fcf1b1a63
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Co Headline Corp
+  fontNames:
+  - Co Headline Corp
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5bcd9dc7c8a45334a8b5cc4c916211fa, type: 3}
+  - {fileID: 12800000, guid: 866c2669379266f4c9dd6012acd5f23e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
