@@ -15,8 +15,6 @@ namespace Manager
         
         public StartValueData startData;
 
-        public LevelData[] levelsData;
-
         public UnityAction onSomeValueChanged;
 
         private readonly PathData path = new PathData("values");
@@ -28,11 +26,9 @@ namespace Manager
 
             values.CurrentTimeSeconds = 0;
 
-            values.CurrentXp = 0;
+            values.CurrentMaxSoldiers = 10;
 
-            values.CurrentLevelIndex = 0;
-
-            print("rest");
+            print("Reset values");
             
             Save();
         }
@@ -71,12 +67,8 @@ namespace Manager
 
             [SerializeField] private int gemsCount;
 
-            [SerializeField] private int currentXp;
+            [SerializeField] private int currentMaxSoldiers;
 
-            [SerializeField] private int currentLevelIndex;
-
-            public LevelData CurrentLevelData => Managers.Values.levelsData[CurrentLevelIndex];
-            
             public int CurrentTimeSeconds
             {
                 get => timeSeconds;
@@ -103,28 +95,17 @@ namespace Manager
                 }
             }
 
-            public int CurrentXp
+            public int CurrentMaxSoldiers
             {
-                get => currentXp;
+                get => currentMaxSoldiers;
                 set
                 {
-                    currentXp = value; 
-                
+                    currentMaxSoldiers = value; 
+                    
                     OnSomeValueChanged();
                 }
             }
-        
-            public int CurrentLevelIndex
-            {
-                get => currentLevelIndex;
-                set
-                {
-                    currentLevelIndex = value; 
-                
-                    OnSomeValueChanged();
-                }
-            }
-            
+
             private void OnSomeValueChanged()
             {
                 Managers.Values.OnSomeValueChanged();
@@ -135,12 +116,6 @@ namespace Manager
         public struct StartValueData
         {
             public int startGems;
-        }
-
-        [Serializable]
-        public struct LevelData
-        {
-            public int needXpToComplete;
         }
     }
 

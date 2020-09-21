@@ -19,9 +19,9 @@ namespace GameUi
 
         public Text timerText;
 
-        public Text xpText;
+        public Text soldiersCountText;
         
-        [Header("Pre")] 
+        [Header("Preferences")] 
         
         public Timer timer;
         
@@ -39,9 +39,9 @@ namespace GameUi
             Additional.SetEventsToButton(menuButton, LoadMenu);
 
             Additional.SetValueToText(gemsCountText, Values.CurrentGemsCount);
-            
-            Additional.SetValueToText(xpText, 
-                $"{Values.CurrentXp}/{Values.CurrentLevelData.needXpToComplete}");
+
+            // TODO: Current count of soldiers
+            Additional.SetValueToText(soldiersCountText, $"0/{Values.CurrentMaxSoldiers}");
             
             UpdateTimer();
         }
