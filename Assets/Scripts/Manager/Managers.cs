@@ -12,7 +12,7 @@ namespace Manager
         private static Managers _instance;
 
         [ContextMenu("Clear")]
-        private void Clear()
+        public static void Clear()
         {
             GameControl.ResetAllData();
         }
