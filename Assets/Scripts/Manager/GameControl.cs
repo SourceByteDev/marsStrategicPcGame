@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using Addone;
+using Data;
+using Game.Units.Control;
 
 namespace Manager
 {
     public class GameControl : MonoBehaviour
     {
-        private static Variable FirstLaunch => SaveVariables.firstLaunch;
+        public Vector2 homeStartPosition = new Vector2(-18, -5);
         
+        private static Variable FirstLaunch => SaveVariables.firstLaunch;
+
         [ContextMenu("Reset all")]
         public void ResetAllData()
         {
@@ -19,14 +23,34 @@ namespace Manager
         {
             if (FirstLaunch.GetInt == 0)
             {
-                print("First launch");
-                
-                Managers.Values.ResetAllValues();
+                Managers.GameControl.CreateStartUnit();
             }
-            
+            else
+            {
+                Managers.GameControl.SpawnSavedUnits();
+            }
+
             FirstLaunch.SetInt(1);
         }
 
+        private void SpawnSavedUnits()
+        {
+            var savedUnits = Managers.Values.values.LiveUnits;
+
+            if (savedUnits.Count < 0)
+                return;
+
+            foreach (var unitData in savedUnits)
+            {
+                UnitSpawner.Instance.SpawnWithOutSave(unitData.parameters, unitData.position);
+            }
+        }
         
+        private void CreateStartUnit()
+        {
+            var unitData = DataAccess.HomeUnit;
+            
+            UnitSpawner.Instance.SpawnUnit(unitData, homeStartPosition);
+        }
     }
 }

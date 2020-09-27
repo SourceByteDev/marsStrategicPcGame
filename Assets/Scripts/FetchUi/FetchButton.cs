@@ -48,6 +48,18 @@ namespace FetchUi
             }
         }
 
+        public bool Interactable
+        {
+            get => interactable;
+
+            set
+            {
+                interactable = value; 
+                
+                UpdateInteractable();
+            }
+        }
+
         private Sprite CurrentSprite
         {
             get => image.sprite;
@@ -61,21 +73,9 @@ namespace FetchUi
             }
         }
 
-        public bool Interactable
-        {
-            get => interactable;
-
-            set
-            {
-                interactable = value; 
-                
-                UpdateInteractable();
-            }
-        }
-
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (selectedSprite == null)
+            if (selectedSprite == null || CurrentSprite != normalSprite)
                 return;
             
             CurrentSprite = selectedSprite;
@@ -101,6 +101,8 @@ namespace FetchUi
         {
             if (eventData.pointerEnter == gameObject)
             {
+                CurrentSprite = normalSprite;
+                
                 OnPointerEnter(eventData);
                 
                 return;
@@ -121,9 +123,12 @@ namespace FetchUi
         {
             var isNullDisable = disabledSprite == null;
 
-            var rightDisabledSprite = disabledSprite == null ? normalSprite : disabledSprite;
+            var isNullNormal = normalSprite == null;
+            
+            if (isNullDisable && !Interactable || isNullNormal && Interactable)
+                return;
 
-            image.sprite = Interactable ? normalSprite : rightDisabledSprite;
+            CurrentSprite = Interactable ? normalSprite : disabledSprite;
         }
         
         private void Start()
@@ -132,7 +137,7 @@ namespace FetchUi
 
             normalSprite = image.sprite;
             
-            
+            UpdateInteractable();
         }
     }
 }

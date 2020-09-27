@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using Data;
+using Game.Units.Unit_Types;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,7 +29,9 @@ namespace Manager
 
             values.CurrentTimeSeconds = 0;
 
-            values.CurrentMaxSoldiers = 10;
+            values.CurrentMaxSupply = 0;
+            
+            values.LiveUnits.Clear();
 
             print("Reset values");
             
@@ -67,7 +72,11 @@ namespace Manager
 
             [SerializeField] private int gemsCount;
 
-            [SerializeField] private int currentMaxSoldiers;
+            [SerializeField] private int currentMaxSupply;
+
+            [SerializeField] private int currentSupply;
+
+            [SerializeField] private List<LiveUnitData> liveUnits;
 
             public int CurrentTimeSeconds
             {
@@ -95,12 +104,34 @@ namespace Manager
                 }
             }
 
-            public int CurrentMaxSoldiers
+            public int CurrentSupply
             {
-                get => currentMaxSoldiers;
+                get => currentSupply;
                 set
                 {
-                    currentMaxSoldiers = value; 
+                    currentSupply = value; 
+                    
+                    OnSomeValueChanged();
+                }
+            }
+
+            public int CurrentMaxSupply
+            {
+                get => currentMaxSupply;
+                set
+                {
+                    currentMaxSupply = value; 
+                    
+                    OnSomeValueChanged();
+                }
+            }
+
+            public List<LiveUnitData> LiveUnits
+            {
+                get => liveUnits;
+                set
+                {
+                    liveUnits = value; 
                     
                     OnSomeValueChanged();
                 }
@@ -116,6 +147,14 @@ namespace Manager
         public struct StartValueData
         {
             public int startGems;
+        }
+
+        [Serializable]
+        public struct LiveUnitData
+        {
+            public Vector2 position;
+
+            public UnitGameParameters parameters;
         }
     }
 

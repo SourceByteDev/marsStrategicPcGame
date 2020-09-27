@@ -60,15 +60,9 @@ MonoBehaviour:
   values:
     timeSeconds: 0
     gemsCount: 0
-    currentXp: 0
-    currentLevelIndex: 0
+    currentMaxSoldiers: 0
   startData:
     startGems: 50
-  levelsData:
-  - needXpToComplete: 500
-  - needXpToComplete: 1000
-  - needXpToComplete: 1500
-  - needXpToComplete: 2000
 --- !u!114 &800355842282962576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +75,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712193c7c5094618b3a60ec33d704622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homeStartPosition: {x: -17.84998, y: -1.48999}

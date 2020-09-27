@@ -82,8 +82,6 @@ namespace Menu
 
         private void OnContinuePressed()
         {
-            GameControl.OnGameStarted();
-
             SceneManager.LoadScene("game");
         }
 

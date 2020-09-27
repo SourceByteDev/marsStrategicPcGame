@@ -1,4 +1,7 @@
 ﻿using System;
+using Data;
+using Game.Units.Control;
+using Game.Units.Unit_Types;
 using Manager;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,6 +27,10 @@ namespace GameUi
         [Header("Preferences")] 
         
         public Timer timer;
+
+        public CentralPanel centralPanel;
+
+        public ControlPanel controlPanel;
         
         private static ValuesManage.IntroductionValues Values => Managers.Values.values;
         
@@ -41,9 +48,27 @@ namespace GameUi
             Additional.SetValueToText(gemsCountText, Values.CurrentGemsCount);
 
             // TODO: Current count of soldiers
-            Additional.SetValueToText(soldiersCountText, $"0/{Values.CurrentMaxSoldiers}");
+            Additional.SetValueToText(soldiersCountText, $"0/{Values.CurrentMaxSupply}");
             
             UpdateTimer();
+        }
+
+        public void InitSelectedParameters(Unit unit)
+        {
+            print("init");
+            
+            centralPanel.InitItem(unit.gameParameters);
+            
+            controlPanel.OpenRightPanel(unit.gameParameters.controlType);
+        }
+
+        public void InActiveSelect(Unit unit = null)
+        {
+            print("inactive");
+            
+            centralPanel.InActive();
+            
+            controlPanel.InActive();
         }
 
         private void UpdateTimer()
@@ -63,7 +88,14 @@ namespace GameUi
             
             timerText.text = isAddMinutes + minutes + ":" + isAddSeconds + seconds;
         }
-        
+
+        private void Awake()
+        {
+            UnitSelector.Instance.OnUnitSelected += InitSelectedParameters;
+
+            UnitSelector.Instance.OnUnitDeSelect += InActiveSelect;
+        }
+
         private void Start()
         {
             Managers.Values.onSomeValueChanged += UpdateUi;
@@ -71,6 +103,8 @@ namespace GameUi
             UpdateUi();
             
             timer.StartTimer();
+            
+            InActiveSelect();
         }
     }
 
