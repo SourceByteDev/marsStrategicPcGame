@@ -18,6 +18,8 @@ namespace GameUi.ControlPanels
             buttons.BuildTier2.Interactable = currentLevel >= 1;
 
             buttons.SpecialAttack.Interactable = currentLevel >= 2;
+
+            buttons.UpgradeBase.Interactable = !parameters.IsMaxLevelNow;
         }
         
         [Serializable]

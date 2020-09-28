@@ -15,6 +15,13 @@ namespace Game.Units.Control
         
         public Unit SelectedUnit { get; private set; }
 
+        public void UpdateSelectedUnit()
+        {
+            SelectedUnit = SelectedUnit;
+            
+            OnUnitSelected.Invoke(SelectedUnit);
+        }
+        
         public void OnUnitNeedSelect(Unit unit)
         {
             if (SelectedUnit == unit)

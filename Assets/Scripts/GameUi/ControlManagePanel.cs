@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Game.Units.Control;
 using Game.Units.Unit_Types;
+using GameUi.AddParameters;
 using GameUi.ControlPanels;
 using UnityEngine;
 
@@ -14,13 +15,17 @@ namespace GameUi
 
         public SoldierParameters soldierPanel;
 
+        public BuildingListParameters buildingPanel;
+
         private IEnumerable<GameObject> AllObjects => pool.Select(x => x.panel.gameObject).ToArray();
 
         public void InActive()
         {
             AllObjects.ToList().ForEach(x => x.SetActive(false));
 
-            soldierPanel.itemsPanel.SetActive(false);
+            soldierPanel.InActive();
+            
+            buildingPanel.InActive();
         }
 
         public void OpenRightPanel(ControlType type)
@@ -37,6 +42,8 @@ namespace GameUi
             founded?.panel.UpdateValues(UnitSelector.Instance.SelectedUnit.gameParameters);
             
             soldierPanel.UpdateActivePanel(type);
+            
+            buildingPanel.UpdateActivePanel(type);
         }
 
         [Serializable]

@@ -31,6 +31,12 @@ namespace Data
 
         public int startHealth = 100;
 
+        public int[] pricesLevelUpdate = new int[]
+        {
+            400,
+            900
+        };
+
         public Sprite avatarSet;
 
         public string unitName;
@@ -54,7 +60,15 @@ namespace Data
         public int startHealth;
 
         public int currentLevel;
+
+        public int[] pricesLevelUpgrades;
         
+        public bool IsMaxLevelNow => currentLevel >= MaxLevel;
+
+        public int MaxLevel => pricesLevelUpgrades.Length;
+
+        public int CurrentPriceUpgrade => pricesLevelUpgrades[currentLevel];
+
         public UnitGameParameters(UnitData data)
         {
             var parameters = data.parameters;
@@ -72,6 +86,8 @@ namespace Data
             unitName = parameters.unitName;
 
             startHealth = parameters.startHealth;
+
+            pricesLevelUpgrades = parameters.pricesLevelUpdate;
         }
     }
     

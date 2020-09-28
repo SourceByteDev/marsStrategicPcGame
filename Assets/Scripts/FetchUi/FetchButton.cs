@@ -15,6 +15,8 @@ namespace FetchUi
 
         [SerializeField] private bool lockChangeSprite;
 
+        [SerializeField] private bool changeColorInActive;
+
         [Space(15)] 
         
         public Sprite disabledSprite;
@@ -26,7 +28,6 @@ namespace FetchUi
         [Space(15)]
 
         public UnityEvent onClick;
-
 
         // Saved variable
 
@@ -60,6 +61,8 @@ namespace FetchUi
             }
         }
 
+        private bool IsChangeByColor => disabledSprite == null && changeColorInActive;
+        
         private Sprite CurrentSprite
         {
             get => image.sprite;
@@ -119,9 +122,17 @@ namespace FetchUi
             onClick.Invoke();
         }
         
+        [ContextMenu("Update interactable")]
         private void UpdateInteractable()
         {
             image = GetComponent<Image>();
+
+            if (IsChangeByColor)
+            {
+                image.color = Interactable ? Color.white : Color.gray;
+                
+                return;
+            }
             
             var isNullDisable = disabledSprite == null;
 

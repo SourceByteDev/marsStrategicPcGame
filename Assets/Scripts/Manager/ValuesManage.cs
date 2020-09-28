@@ -139,6 +139,16 @@ namespace Manager
                 }
             }
 
+            public bool TryRemoveGems(int value)
+            {
+                if (value > gemsCount)
+                    return false;
+
+                CurrentGemsCount -= value;
+                
+                return true;
+            }
+            
             private void OnSomeValueChanged()
             {
                 Managers.Values.OnSomeValueChanged();

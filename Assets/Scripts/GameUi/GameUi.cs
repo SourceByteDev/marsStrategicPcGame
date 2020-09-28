@@ -56,8 +56,6 @@ namespace GameUi
 
         public void InitSelectedParameters(Unit unit)
         {
-            print("init");
-            
             centralPanel.InitItem(unit.gameParameters);
             
             controlManagePanel.OpenRightPanel(unit.gameParameters.controlType);

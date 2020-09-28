@@ -60,9 +60,11 @@ MonoBehaviour:
   values:
     timeSeconds: 0
     gemsCount: 0
-    currentMaxSoldiers: 0
+    currentMaxSupply: 0
+    currentSupply: 0
+    liveUnits: []
   startData:
-    startGems: 50
+    startGems: 1500
 --- !u!114 &800355842282962576
 MonoBehaviour:
   m_ObjectHideFlags: 0
