@@ -33,6 +33,8 @@ namespace Manager
             
             values.LiveUnits.Clear();
 
+            PlayerPrefs.DeleteAll();
+            
             print("Reset values");
             
             Save();

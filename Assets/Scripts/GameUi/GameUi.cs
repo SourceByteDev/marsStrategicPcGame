@@ -6,6 +6,7 @@ using Manager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace GameUi
@@ -30,7 +31,7 @@ namespace GameUi
 
         public CentralPanel centralPanel;
 
-        public ControlPanel controlPanel;
+        [FormerlySerializedAs("controlPanel")] public ControlManagePanel controlManagePanel;
         
         private static ValuesManage.IntroductionValues Values => Managers.Values.values;
         
@@ -59,7 +60,7 @@ namespace GameUi
             
             centralPanel.InitItem(unit.gameParameters);
             
-            controlPanel.OpenRightPanel(unit.gameParameters.controlType);
+            controlManagePanel.OpenRightPanel(unit.gameParameters.controlType);
         }
 
         public void InActiveSelect(Unit unit = null)
@@ -68,7 +69,7 @@ namespace GameUi
             
             centralPanel.InActive();
             
-            controlPanel.InActive();
+            controlManagePanel.InActive();
         }
 
         private void UpdateTimer()
@@ -122,6 +123,9 @@ namespace GameUi
 
         public static void SetValueToText(Text text, object value)
         {
+            if (text == null)
+                return;
+            
             text.text = value.ToString();
         }
     }

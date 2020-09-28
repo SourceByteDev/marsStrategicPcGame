@@ -13,7 +13,7 @@ namespace Game.Units.Control
         
         public UnityAction<Unit> OnUnitDeSelect { get; set; }
         
-        private Unit SelectedUnit { get; set; }
+        public Unit SelectedUnit { get; private set; }
 
         public void OnUnitNeedSelect(Unit unit)
         {

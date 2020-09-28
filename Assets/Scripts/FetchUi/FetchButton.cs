@@ -121,6 +121,8 @@ namespace FetchUi
         
         private void UpdateInteractable()
         {
+            image = GetComponent<Image>();
+            
             var isNullDisable = disabledSprite == null;
 
             var isNullNormal = normalSprite == null;
@@ -128,7 +130,7 @@ namespace FetchUi
             if (isNullDisable && !Interactable || isNullNormal && Interactable)
                 return;
 
-            CurrentSprite = Interactable ? normalSprite : disabledSprite;
+            image.sprite = Interactable ? normalSprite : disabledSprite;
         }
         
         private void Start()

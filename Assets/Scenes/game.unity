@@ -828,7 +828,7 @@ RectTransform:
   - {fileID: 1390709966}
   - {fileID: 916714333}
   m_Father: {fileID: 1272767021}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -940,6 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248216808}
+  - component: {fileID: 248216809}
   m_Layer: 5
   m_Name: barracksPanel
   m_TagString: Untagged
@@ -971,6 +972,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &248216809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248216807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b901d6ab14554aed29356e8700fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &248513868
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,18 +3105,18 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1926089738}
-  - {fileID: 1305491753}
-  - {fileID: 415919901}
-  - {fileID: 2114891458}
   - {fileID: 161002932}
+  - {fileID: 2114891458}
+  - {fileID: 415919901}
+  - {fileID: 1305491753}
+  - {fileID: 1926089738}
   m_Father: {fileID: 810567435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1287257051
 GameObject:
@@ -3221,7 +3234,7 @@ MonoBehaviour:
   soldiersCountText: {fileID: 1760871481}
   timer: {fileID: 1732807613}
   centralPanel: {fileID: 810567438}
-  controlPanel: {fileID: 2058522370}
+  controlManagePanel: {fileID: 2058522370}
 --- !u!1 &1305491752
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,15 +3261,15 @@ RectTransform:
   m_GameObject: {fileID: 1305491752}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0273342, y: 1.0273342, z: 1.0273342}
+  m_LocalScale: {x: 1.0273345, y: 1.0273345, z: 1.0273345}
   m_Children:
   - {fileID: 750577602}
   m_Father: {fileID: 1272767021}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 77.5, y: -59.4}
+  m_AnchoredPosition: {x: 77.500114, y: -59.4}
   m_SizeDelta: {x: 193.39404, y: 24.765945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305491754
@@ -4591,6 +4604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1784601201}
+  - component: {fileID: 1784601202}
   m_Layer: 5
   m_Name: housePanel
   m_TagString: Untagged
@@ -4622,6 +4636,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1784601202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784601200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a460ca65e4544bc69d7d42597e6efa0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+    buildTier1: {fileID: 1030459370}
+    buildTier2: {fileID: 223025589}
+    buildWorker: {fileID: 2066657163}
+    upgradeBase: {fileID: 1868162368}
+    specialAttack: {fileID: 1336394188}
 --- !u!1 &1795697058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,7 +4834,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1272767021}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5033,9 +5065,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool:
   - type: 1
-    panel: {fileID: 1784601200}
+    panel: {fileID: 1784601202}
   - type: 2
-    panel: {fileID: 248216807}
+    panel: {fileID: 248216809}
   soldierPanel: {fileID: 1305491754}
 --- !u!1 &2066657161
 GameObject:
@@ -5163,7 +5195,7 @@ RectTransform:
   - {fileID: 56059553}
   - {fileID: 483243869}
   m_Father: {fileID: 1272767021}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

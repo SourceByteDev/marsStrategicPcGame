@@ -52,6 +52,8 @@ namespace Data
         public string unitName;
 
         public int startHealth;
+
+        public int currentLevel;
         
         public UnitGameParameters(UnitData data)
         {
