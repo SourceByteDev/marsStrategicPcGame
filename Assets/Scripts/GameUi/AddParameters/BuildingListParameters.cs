@@ -1,4 +1,6 @@
-﻿using Game.Units.Unit_Types;
+﻿using System.Linq;
+using Game.Units.Control;
+using Game.Units.Unit_Types;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,10 @@ namespace GameUi.AddParameters
         public GameObject activeItems;
 
         public Image activeImage;
+
+        public Transform parentItems;
+
+        public BuildItem itemPrefab;
 
         public void InActive()
         {
@@ -25,8 +31,33 @@ namespace GameUi.AddParameters
 
             activeImage.enabled = isActive;
             
+            ClearAllItems();
+            
             if (!isActive)
                 return;
+            
+            var currentBuilds = UnitSelector.Instance.SelectedUnit.gameParameters.currentBuilds;
+            
+            if (currentBuilds.Count <= 0)
+                return;
+
+            var avatarSet = UnitSelector.Instance.SelectedUnit.gameParameters.buildSprite;
+
+            foreach (var build in currentBuilds.ToList())
+            {
+                var newUnitItem = Instantiate(itemPrefab, parentItems);
+                
+                newUnitItem.Init(build, avatarSet);
+            }
+        }
+
+        private void ClearAllItems()
+        {
+            if (parentItems.childCount <= 0)
+                return;
+            
+            for (var i = 0; i < parentItems.childCount; i++)
+                Destroy(parentItems.GetChild(i).gameObject);
         }
     }
 }

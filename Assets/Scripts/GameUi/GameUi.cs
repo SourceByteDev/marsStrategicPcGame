@@ -47,8 +47,7 @@ namespace GameUi
             Additional.SetEventsToButton(menuButton, LoadMenu);
 
             Additional.SetValueToText(gemsCountText, Values.CurrentGemsCount);
-
-            // TODO: Current count of soldiers
+            
             Additional.SetValueToText(soldiersCountText, $"0/{Values.CurrentMaxSupply}");
             
             UpdateTimer();

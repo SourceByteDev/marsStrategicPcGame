@@ -17,6 +17,9 @@ namespace Game.Units.Control
 
         public void UpdateSelectedUnit()
         {
+            if (SelectedUnit == null)
+                return;
+            
             SelectedUnit = SelectedUnit;
             
             OnUnitSelected.Invoke(SelectedUnit);
@@ -26,18 +29,32 @@ namespace Game.Units.Control
         {
             if (SelectedUnit == unit)
             {
-                OnUnitDeSelect?.Invoke(unit);
-
+                // Unselect
+                
                 SelectedUnit = null;
+                
+                OnUnitDeSelect?.Invoke(unit);
+                
+                unit.GetComponent<MeshRenderer>().material.shader = Shader.Find("Spine/Skeleton");
                 
                 return;
             }
+            if (SelectedUnit != null)
+            {
+                SelectedUnit.GetComponent<MeshRenderer>().material.shader = Shader.Find("Spine/Skeleton");
+                
+                SelectedUnit = null;
+            }
 
+            // SELECT
+            
             print("select " + unit.name);
 
             SelectedUnit = unit;
             
             OnUnitSelected.Invoke(unit);
+            
+            unit.GetComponent<MeshRenderer>().material.shader = Shader.Find("Spine/Outline/Skeleton");
         }
         
         private void Awake()

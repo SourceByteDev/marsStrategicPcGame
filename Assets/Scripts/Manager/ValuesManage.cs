@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Data;
 using Game.Units.Unit_Types;
 using UnityEngine;
@@ -10,13 +11,10 @@ namespace Manager
 {
     public class ValuesManage : MonoBehaviour
     {
-        [Header("Main")]
-        
-        [Tooltip("Dont fucking touch this")] public IntroductionValues values;
+        [Header("Main")] [Tooltip("Dont fucking touch this")]
+        public IntroductionValues values;
 
-        [Header("Game Variables")]
-        
-        public StartValueData startData;
+        [Header("Game Variables")] public StartValueData startData;
 
         public UnityAction onSomeValueChanged;
 
@@ -30,13 +28,13 @@ namespace Manager
             values.CurrentTimeSeconds = 0;
 
             values.CurrentMaxSupply = 0;
-            
+
             values.LiveUnits.Clear();
 
             PlayerPrefs.DeleteAll();
-            
+
             print("Reset values");
-            
+
             Save();
         }
 
@@ -48,17 +46,27 @@ namespace Manager
 
             values = JsonUtility.FromJson<IntroductionValues>(File.ReadAllText(path.Full));
         }
-        
+
         [ContextMenu("Save")]
         private void Save()
         {
             File.WriteAllText(path.Full, JsonUtility.ToJson(values));
         }
 
+        public int CountOfTypes(ControlType type)
+        {
+            var countLive = values.LiveUnits.Count(x => x.parameters.controlType == type) +
+                            values.LiveUnits.Sum(liveUnit =>
+                                liveUnit.parameters.currentBuilds.Count(x =>
+                                    x.toBuildUnit.parameters.controlType == type));
+
+            return countLive;
+        }
+
         private void OnSomeValueChanged()
         {
             onSomeValueChanged?.Invoke();
-            
+
             Save();
         }
 
@@ -86,8 +94,8 @@ namespace Manager
 
                 set
                 {
-                    timeSeconds = value; 
-                
+                    timeSeconds = value;
+
                     OnSomeValueChanged();
                 }
             }
@@ -101,7 +109,7 @@ namespace Manager
                     value = Mathf.Clamp(value, 0, int.MaxValue);
 
                     gemsCount = value;
-                
+
                     OnSomeValueChanged();
                 }
             }
@@ -111,8 +119,8 @@ namespace Manager
                 get => currentSupply;
                 set
                 {
-                    currentSupply = value; 
-                    
+                    currentSupply = value;
+
                     OnSomeValueChanged();
                 }
             }
@@ -122,8 +130,8 @@ namespace Manager
                 get => currentMaxSupply;
                 set
                 {
-                    currentMaxSupply = value; 
-                    
+                    currentMaxSupply = value;
+
                     OnSomeValueChanged();
                 }
             }
@@ -133,8 +141,8 @@ namespace Manager
                 get => liveUnits;
                 set
                 {
-                    liveUnits = value; 
-                    
+                    liveUnits = value;
+
                     OnSomeValueChanged();
                 }
             }
@@ -145,17 +153,17 @@ namespace Manager
                     return false;
 
                 CurrentGemsCount -= value;
-                
+
                 return true;
             }
-            
+
             private void OnSomeValueChanged()
             {
                 Managers.Values.OnSomeValueChanged();
             }
         }
-        
-        [Serializable] 
+
+        [Serializable]
         public struct StartValueData
         {
             public int startGems;

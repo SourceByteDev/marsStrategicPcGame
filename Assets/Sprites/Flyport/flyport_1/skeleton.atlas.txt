@@ -1,0 +1,90 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dor
+  rotate: true
+  xy: 844, 716
+  size: 120, 100
+  orig: 120, 100
+  offset: 0, 0
+  index: -1
+fly lamp_light_1
+  rotate: false
+  xy: 844, 838
+  size: 128, 180
+  orig: 128, 180
+  offset: 0, 0
+  index: -1
+fly light_1
+  rotate: false
+  xy: 974, 838
+  size: 44, 180
+  orig: 44, 180
+  offset: 0, 0
+  index: -1
+fly light_2
+  rotate: false
+  xy: 776, 417
+  size: 48, 163
+  orig: 48, 163
+  offset: 0, 0
+  index: -1
+fly light_3
+  rotate: false
+  xy: 946, 688
+  size: 54, 148
+  orig: 54, 148
+  offset: 0, 0
+  index: -1
+flyport
+  rotate: false
+  xy: 2, 202
+  size: 772, 512
+  orig: 772, 512
+  offset: 0, 0
+  index: -1
+radar
+  rotate: false
+  xy: 776, 268
+  size: 38, 147
+  orig: 38, 147
+  offset: 0, 0
+  index: -1
+radar_1
+  rotate: false
+  xy: 776, 788
+  size: 30, 44
+  orig: 30, 44
+  offset: 0, 0
+  index: -1
+radar_2
+  rotate: false
+  xy: 776, 582
+  size: 49, 104
+  orig: 49, 104
+  offset: 0, 0
+  index: -1
+radar_3
+  rotate: true
+  xy: 1002, 771
+  size: 65, 11
+  orig: 65, 11
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 834
+  size: 840, 184
+  orig: 840, 184
+  offset: 0, 0
+  index: -1
+windows_lights
+  rotate: true
+  xy: 816, 215
+  size: 200, 23
+  orig: 200, 23
+  offset: 0, 0
+  index: -1

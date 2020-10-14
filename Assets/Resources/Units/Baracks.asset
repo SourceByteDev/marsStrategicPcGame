@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
+  m_Name: Baracks
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  parameters:
+    poolType: 0
+    controlType: 0
+    isGiveSupply: 0
+    countSupply: 1
+    startHealth: 100
+    maxCountToBuild: 4
+    pricesLevelUpdate: 9001000084030000
+    avatarSet: {fileID: 0}
+    unitName: 
+    buildSprite: {fileID: 0}
+    priceBuild: 100
+    timeBuildSeconds: 10
