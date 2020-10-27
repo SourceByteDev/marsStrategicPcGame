@@ -48,7 +48,9 @@ namespace Manager
         
         private void CreateStartUnit()
         {
-            var unitData = DataAccess.HomeUnit;
+            var unitData = DataAccess.MainHouseUnit;
+
+            Managers.Values.values.CurrentMaxSupply = 10;
             
             UnitSpawner.Instance.SpawnUnit(unitData, homeStartPosition);
         }

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
+  m_Name: Factory
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 470921643180067558, guid: 54f8d5af8773ae74f94f4a30289411e6, type: 3}
+  parameters:
+    poolType: 0
+    controlType: 0
+    isGiveSupply: 0
+    countSupply: 2
+    startHealth: 1000
+    maxCountToBuild: 1
+    pricesLevelUpdate: 9001000084030000
+    avatarSet: {fileID: 21300000, guid: 2fc88df44fa8784478cb411d5f077153, type: 3}
+    unitName: Factory
+    buildSprite: {fileID: 21300000, guid: 99777dd3518b3974982ef9812fdc08ea, type: 3}
+    priceBuild: 65
+    timeBuildSeconds: 20
+    priceModiferForLiveCount: 0

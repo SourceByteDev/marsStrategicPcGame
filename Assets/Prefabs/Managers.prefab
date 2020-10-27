@@ -64,7 +64,7 @@ MonoBehaviour:
     currentSupply: 0
     liveUnits: []
   startData:
-    startGems: 1500
+    startGems: 25000
 --- !u!114 &800355842282962576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,4 +77,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712193c7c5094618b3a60ec33d704622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeStartPosition: {x: -17.84998, y: -1.48999}
+  homeStartPosition: {x: -7.17, y: -1.77}

@@ -1,0 +1,83 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+conveyor belt
+  rotate: true
+  xy: 704, 248
+  size: 299, 185
+  orig: 299, 185
+  offset: 0, 0
+  index: -1
+factory
+  rotate: false
+  xy: 2, 406
+  size: 700, 569
+  orig: 700, 569
+  offset: 0, 0
+  index: -1
+ores
+  rotate: false
+  xy: 927, 679
+  size: 35, 24
+  orig: 35, 24
+  offset: 0, 0
+  index: -1
+ores_1
+  rotate: true
+  xy: 901, 657
+  size: 46, 24
+  orig: 46, 24
+  offset: 0, 0
+  index: -1
+ores_2
+  rotate: false
+  xy: 901, 606
+  size: 32, 24
+  orig: 32, 24
+  offset: 0, 0
+  index: -1
+ores_3
+  rotate: false
+  xy: 901, 632
+  size: 39, 23
+  orig: 39, 23
+  offset: 0, 0
+  index: -1
+steam
+  rotate: false
+  xy: 2, 228
+  size: 204, 176
+  orig: 204, 176
+  offset: 0, 0
+  index: -1
+steam_1
+  rotate: true
+  xy: 704, 758
+  size: 217, 198
+  orig: 217, 198
+  offset: 0, 0
+  index: -1
+steam_2
+  rotate: true
+  xy: 704, 549
+  size: 207, 195
+  orig: 207, 195
+  offset: 0, 0
+  index: -1
+wheel
+  rotate: true
+  xy: 891, 459
+  size: 88, 84
+  orig: 88, 84
+  offset: 0, 0
+  index: -1
+wheel_mini
+  rotate: false
+  xy: 901, 705
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1

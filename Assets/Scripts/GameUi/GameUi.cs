@@ -48,7 +48,7 @@ namespace GameUi
 
             Additional.SetValueToText(gemsCountText, Values.CurrentGemsCount);
             
-            Additional.SetValueToText(soldiersCountText, $"0/{Values.CurrentMaxSupply}");
+            Additional.SetValueToText(soldiersCountText, $"{Values.CurrentSupply}/{Values.CurrentMaxSupply}");
             
             UpdateTimer();
         }
@@ -62,8 +62,6 @@ namespace GameUi
 
         public void InActiveSelect(Unit unit = null)
         {
-            print("inactive");
-            
             centralPanel.InActive();
             
             controlManagePanel.InActive();
@@ -92,12 +90,12 @@ namespace GameUi
             UnitSelector.Instance.OnUnitSelected += InitSelectedParameters;
 
             UnitSelector.Instance.OnUnitDeSelect += InActiveSelect;
+            
+            Managers.Values.onSomeValueChanged += UpdateUi;
         }
 
         private void Start()
         {
-            Managers.Values.onSomeValueChanged += UpdateUi;
-            
             UpdateUi();
             
             timer.StartTimer();

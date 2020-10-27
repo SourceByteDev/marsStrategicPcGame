@@ -7,7 +7,8 @@ namespace GameUi.ControlPanels
     {
         public override void UpdateValues(UnitGameParameters parameters)
         {
-            throw new System.NotImplementedException();
+            // TODO: show panel barracks
+            print("hey");
         }
     }
 }

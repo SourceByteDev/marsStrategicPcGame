@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7742707706409000978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.61, y: -0.1, z: 0}
-  m_LocalScale: {x: 0.7635, y: 0.7635, z: 0.7635}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.7635}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -137,12 +137,16 @@ MonoBehaviour:
     currentHealth: 0
     prefab: {fileID: 0}
     poolType: 0
-    avatar: {fileID: 0}
+    avatarSet: {fileID: 0}
     unitName: 
     startHealth: 0
     currentLevel: 0
     pricesLevelUpgrades: 
     buildSprite: {fileID: 0}
+    countSupply: 0
+    isGiveSupply: 0
+    price: 0
+    isRandomPosition: 0
     currentBuilds: []
 --- !u!61 &390910660635830527
 BoxCollider2D:
@@ -157,7 +161,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.13514519, y: -0.01086843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -168,5 +172,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.5104103, y: 3.5615578}
   m_EdgeRadius: 0

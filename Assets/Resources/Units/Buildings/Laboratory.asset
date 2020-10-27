@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
+  m_Name: Laboratory
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8874109934493879764, guid: cb145bad1202721439e4e74d089b2eba, type: 3}
+  parameters:
+    poolType: 0
+    controlType: 0
+    isGiveSupply: 0
+    countSupply: 4
+    startHealth: 1000
+    maxCountToBuild: 1
+    pricesLevelUpdate: 
+    avatarSet: {fileID: 21300000, guid: ff79e5ad5227fd74aa853e4bc0c29dfc, type: 3}
+    unitName: Laboratory
+    buildSprite: {fileID: 21300000, guid: d168154f490c6634bbe9a510a3859428, type: 3}
+    priceBuild: 200
+    timeBuildSeconds: 15
+    priceModiferForLiveCount: 0

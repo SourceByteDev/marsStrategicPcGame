@@ -18,7 +18,19 @@ namespace Manager
 
         public UnityAction onSomeValueChanged;
 
+        public int CurrentMaxCountWorkers => 5 + values.LiveUnits[0].parameters.currentLevel * 5;
+        
         private readonly PathData path = new PathData("values");
+
+        public bool IsSupplyFullIfSell(int removeFromMax)
+        {
+            return values.CurrentSupply > values.CurrentMaxSupply - removeFromMax;
+        }
+        
+        public bool IsSupplyFull(int addSupply)
+        {
+            return values.CurrentSupply + addSupply > values.CurrentMaxSupply;
+        }
 
         [ContextMenu("Reset all")]
         public void ResetAllValues()
@@ -28,6 +40,8 @@ namespace Manager
             values.CurrentTimeSeconds = 0;
 
             values.CurrentMaxSupply = 0;
+
+            values.CurrentSupply = 0;
 
             values.LiveUnits.Clear();
 
@@ -53,14 +67,23 @@ namespace Manager
             File.WriteAllText(path.Full, JsonUtility.ToJson(values));
         }
 
-        public int CountOfTypes(ControlType type)
+        public int CountOfAllTypes(Sprite avatar)
         {
-            var countLive = values.LiveUnits.Count(x => x.parameters.controlType == type) +
-                            values.LiveUnits.Sum(liveUnit =>
-                                liveUnit.parameters.currentBuilds.Count(x =>
-                                    x.toBuildUnit.parameters.controlType == type));
+            var countLive = CountOfLiveUnits(avatar) + CountOfBuildUnits(avatar);
 
             return countLive;
+        }
+
+        public int CountOfLiveUnits(Sprite avatar)
+        {
+            return values.LiveUnits.Count(x => x.parameters.avatarSet == avatar);
+        }
+
+        public int CountOfBuildUnits(Sprite avatar)
+        {
+            return values.LiveUnits.Sum(liveUnit =>
+                liveUnit.parameters.currentBuilds.Count(x =>
+                    x.toBuildUnit.parameters.avatarSet == avatar));
         }
 
         private void OnSomeValueChanged()

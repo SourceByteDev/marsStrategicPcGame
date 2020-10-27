@@ -20,10 +20,28 @@ namespace Game.Units.Control
 
         public List<Unit> currentUnits;
 
-        public static UnitSpawner Instance;
+        public static UnitSpawner Instance { get; private set; }
 
-        public UnityEvent<Unit> onUnitSpawned;
-        
+        public UnityAction<Unit> onUnitSpawned;
+
+        public UnityAction<Unit> onUnitDestroyed;
+
+        public void RemoveUnit(Unit unit)
+        {
+            currentUnits.Remove(unit);
+
+            var liveUnits = Managers.Values.values.LiveUnits;
+
+            var foundUnit = liveUnits.Find(x =>
+                x.parameters == unit.gameParameters && Vector2.Distance(unit.transform.position, x.position) < .1f);
+
+            liveUnits.Remove(foundUnit);
+            
+            onUnitDestroyed?.Invoke(unit);
+            
+            Destroy(unit.gameObject);
+        }
+
         public void SpawnUnit(UnitData data, Vector2 position)
         {
             var parameters = data.parameters;
@@ -38,17 +56,12 @@ namespace Game.Units.Control
 
             currentUnits.Add(unitController);
 
-            if (parameters.isGiveSupply)
-                Managers.Values.values.CurrentMaxSupply += parameters.countSupply;
-            else
-                Managers.Values.values.CurrentSupply += parameters.countSupply;
-            
             Managers.Values.values.LiveUnits.Add(new ValuesManage.LiveUnitData()
             {
                 position = unitController.transform.position,
                 parameters = unitController.gameParameters
             });
-            
+
             onUnitSpawned?.Invoke(unitController);
         }
 
@@ -56,7 +69,7 @@ namespace Game.Units.Control
         {
             var rightParent = GetRightParentFrom(parameters.poolType);
 
-            var newUnit = Instantiate(parameters.prefab.gameObject, position, Quaternion.identity, 
+            var newUnit = Instantiate(parameters.prefab.gameObject, position, Quaternion.identity,
                 rightParent);
 
             var unitController = newUnit.GetComponent<Unit>();
@@ -64,10 +77,10 @@ namespace Game.Units.Control
             unitController.InitParameters(parameters);
 
             currentUnits.Add(unitController);
-            
+
             onUnitSpawned?.Invoke(unitController);
         }
-        
+
         private Transform GetRightParentFrom(PoolType poolType)
         {
             switch (poolType)

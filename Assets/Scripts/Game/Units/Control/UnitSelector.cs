@@ -1,4 +1,5 @@
 ﻿using System;
+using Data;
 using Game.Units.Unit_Types;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,11 +16,34 @@ namespace Game.Units.Control
         
         public Unit SelectedUnit { get; private set; }
 
-        public void UpdateSelectedUnit()
+        public void UnSelectUnit()
         {
             if (SelectedUnit == null)
                 return;
             
+            SelectedUnit.IsSelected = false;
+
+            OnUnitDeSelect.Invoke(SelectedUnit);
+            
+            SelectedUnit = null;
+        }
+
+        public void SelectUnit(Unit unit)
+        {
+            print("select " + unit.name);
+
+            SelectedUnit = unit;
+            
+            OnUnitSelected.Invoke(unit);
+
+            unit.IsSelected = true;
+        }
+        
+        public void UpdateSelectedUnit()
+        {
+            if (SelectedUnit == null)
+                return;
+
             SelectedUnit = SelectedUnit;
             
             OnUnitSelected.Invoke(SelectedUnit);
@@ -31,30 +55,21 @@ namespace Game.Units.Control
             {
                 // Unselect
                 
-                SelectedUnit = null;
-                
-                OnUnitDeSelect?.Invoke(unit);
-                
-                unit.GetComponent<MeshRenderer>().material.shader = Shader.Find("Spine/Skeleton");
+                UnSelectUnit();
                 
                 return;
             }
+            
             if (SelectedUnit != null)
             {
-                SelectedUnit.GetComponent<MeshRenderer>().material.shader = Shader.Find("Spine/Skeleton");
+                SelectedUnit.IsSelected = false;
                 
                 SelectedUnit = null;
             }
 
             // SELECT
-            
-            print("select " + unit.name);
 
-            SelectedUnit = unit;
-            
-            OnUnitSelected.Invoke(unit);
-            
-            unit.GetComponent<MeshRenderer>().material.shader = Shader.Find("Spine/Outline/Skeleton");
+            SelectUnit(unit);
         }
         
         private void Awake()

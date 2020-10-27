@@ -2,6 +2,9 @@
 using System.Linq;
 using Data;
 using FetchUi;
+using Game.Units.Control;
+using Game.Units.Unit_Types;
+using LogicHelper;
 using UnityEngine;
 
 namespace GameUi.ControlPanels
@@ -12,17 +15,19 @@ namespace GameUi.ControlPanels
 
         [SerializeField] private IntroductionValues introduction;
 
-        private UnitGameParameters _lastParameters;
+        private UnitGameParameters lastParameters;
         
         public override void UpdateValues(UnitGameParameters parameters)
         {
-            if (_lastParameters == parameters)
-                return;
+            if (lastParameters != parameters)
+                OpenMainWindow();
 
-            _lastParameters = parameters;
+            lastParameters = parameters;
             
             var currentLevel = parameters.currentLevel;
 
+            UpdateUnitBuyButtons();
+            
             buttons.BuildTier1.Interactable = currentLevel >= 0;
 
             buttons.BuildTier2.Interactable = currentLevel >= 1;
@@ -30,9 +35,7 @@ namespace GameUi.ControlPanels
             buttons.SpecialAttack.Interactable = currentLevel >= 2;
 
             buttons.UpgradeBase.Interactable = !parameters.IsMaxLevelNow;
-            
-            CloseAllOtherWindows();
-            
+
             buttons.BuildTier1.onClick.RemoveAllListeners();
             
             buttons.BuildTier1.onClick.AddListener(OpenTier1);
@@ -40,16 +43,48 @@ namespace GameUi.ControlPanels
             buttons.BuildTier2.onClick.RemoveAllListeners();
             
             buttons.BuildTier2.onClick.AddListener(OpenTier2);
+
+            buttons.CancelButton.Interactable = UnitProcessBuild.IsAnyBuildsByUnit(UnitSelector.Instance.SelectedUnit);
+            
+            buttons.CancelButton.onClick.RemoveAllListeners();
+            
+            buttons.CancelButton.onClick.AddListener(UnitProcessBuild.CancelLastBuildInSelected);
             
             buttons.BacksButton.ToList().ForEach(x =>
             {
                 x.onClick.RemoveAllListeners();
                 
-                x.onClick.AddListener(CloseAllOtherWindows);
+                x.onClick.AddListener(OpenMainWindow);
             });
         }
 
-        private void CloseAllOtherWindows()
+        private void UpdateUnitBuyButtons()
+        {
+            var buyButtons = buttons.BuyUnitButtons;
+
+            buyButtons.ToList().ForEach(x =>
+            {
+                var button = x.Button;
+
+                var data = x.Data;
+
+                var canBuy = UnitBuilder.CanBeUnitBuild(data);
+
+                button.Interactable = canBuy;
+
+                button.onClick.RemoveAllListeners();
+                
+                if (!canBuy)
+                    return;
+                
+                button.onClick.AddListener(delegate
+                {
+                    UnitBuilder.AddUnitCurrentToBuild(data);
+                });
+            });
+        }
+        
+        private void OpenMainWindow()
         {
             introduction.MainPart.SetActive(true);
             
@@ -75,7 +110,15 @@ namespace GameUi.ControlPanels
             
             introduction.BuildTier2Part.SetActive(true);
         }
-        
+
+        private void Awake()
+        {
+            UnitSelector.Instance.OnUnitDeSelect += delegate(Unit unit)
+            {
+                lastParameters = null;
+            };
+        }
+
         [Serializable]
         public struct Buttons
         {
@@ -90,6 +133,10 @@ namespace GameUi.ControlPanels
             [SerializeField] private FetchButton specialAttack;
 
             [SerializeField] private FetchButton[] backsButton;
+
+            [SerializeField] private FetchButton cancelButton;
+
+            [SerializeField] private UnitBuyButton[] buyUnitButtons;
             
             public FetchButton BuildTier1 => buildTier1;
 
@@ -102,6 +149,10 @@ namespace GameUi.ControlPanels
             public FetchButton SpecialAttack => specialAttack;
 
             public FetchButton[] BacksButton => backsButton;
+
+            public UnitBuyButton[] BuyUnitButtons => buyUnitButtons;
+
+            public FetchButton CancelButton => cancelButton;
         }
 
         [Serializable]
@@ -118,6 +169,18 @@ namespace GameUi.ControlPanels
             public GameObject BuildTier1Part => buildTier1Part;
 
             public GameObject BuildTier2Part => buildTier2Part;
+        }
+
+        [Serializable]
+        public struct UnitBuyButton
+        {
+            [SerializeField] private FetchButton button;
+
+            [SerializeField] private UnitData data;
+
+            public FetchButton Button => button;
+
+            public UnitData Data => data;
         }
     }
 }

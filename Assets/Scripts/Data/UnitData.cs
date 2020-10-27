@@ -48,6 +48,8 @@ namespace Data
 
         public string unitName;
 
+        public bool isRandomPosition;
+
         [Header("Build add")] 
         
         public Sprite buildSprite;
@@ -55,6 +57,12 @@ namespace Data
         public int priceBuild = 100;
 
         public int timeBuildSeconds = 10;
+
+        public bool priceModiferForLiveCount;
+
+        public bool priceEnumerationForLiveCount;
+
+        public int enumerationPrice;
     }
 
     [Serializable]
@@ -68,7 +76,7 @@ namespace Data
 
         public PoolType poolType;
 
-        public Sprite avatar;
+        public Sprite avatarSet;
 
         public string unitName;
 
@@ -80,6 +88,14 @@ namespace Data
 
         public Sprite buildSprite;
 
+        public int countSupply;
+
+        public bool isGiveSupply;
+
+        public int price;
+
+        public bool isRandomPosition;
+        
         public List<BuildUnitParameters> currentBuilds = new List<BuildUnitParameters>();
         
         public bool IsMaxLevelNow => currentLevel >= MaxLevel;
@@ -100,7 +116,7 @@ namespace Data
 
             poolType = parameters.poolType;
 
-            avatar = parameters.avatarSet;
+            avatarSet = parameters.avatarSet;
 
             unitName = parameters.unitName;
 
@@ -109,6 +125,14 @@ namespace Data
             pricesLevelUpgrades = parameters.pricesLevelUpdate;
 
             buildSprite = data.parameters.buildSprite;
+
+            countSupply = parameters.countSupply;
+
+            isGiveSupply = parameters.isGiveSupply;
+
+            price = parameters.priceBuild;
+
+            isRandomPosition = parameters.isRandomPosition;
         }
     }
 

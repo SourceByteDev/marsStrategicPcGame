@@ -1,0 +1,48 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fire
+  rotate: false
+  xy: 248, 597
+  size: 91, 87
+  orig: 91, 87
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 341, 450
+  size: 321, 234
+  orig: 321, 234
+  offset: 0, 0
+  index: -1
+gun_1
+  rotate: false
+  xy: 44, 611
+  size: 202, 73
+  orig: 202, 73
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 31, 673
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1
+sleeve
+  rotate: false
+  xy: 2, 676
+  size: 27, 8
+  orig: 27, 8
+  offset: 0, 0
+  index: -1
+tower defens
+  rotate: true
+  xy: 2, 2
+  size: 446, 588
+  orig: 446, 588
+  offset: 0, 0
+  index: -1

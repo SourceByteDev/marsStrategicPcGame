@@ -1,14 +1,19 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Data;
 using Game.Units.Control;
+using Game.Units.Unit_Types;
 using Manager;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LogicHelper
 {
     public class UnitProcessBuild : MonoBehaviour
     {
         private static bool _lastSpawnedUpper;
+        
+        public static UnitProcessBuild Instance { get; private set; }
         
         public static void AddAllSeconds()
         {
@@ -17,12 +22,9 @@ namespace LogicHelper
             if (liveUnits.Count <= 0)
                 return;
 
-            foreach (var unit in liveUnits.ToList())
+            foreach (var unit in liveUnits.ToList().Where(unit => unit.parameters.currentBuilds.Count > 0))
             {
-                if (unit.parameters.currentBuilds.Count <= 0)
-                    continue;
-
-                unit.parameters.currentBuilds.ToList().ForEach(x => x.AddSeconds());
+                unit.parameters.currentBuilds[0].AddSeconds();
                 
                 if (UnitSelector.Instance.SelectedUnit == null)
                     continue;
@@ -44,6 +46,25 @@ namespace LogicHelper
             foundedUnits.parameters.currentBuilds.Remove(parameters);
             
             UnitSpawner.Instance.SpawnUnit(unitData, UnitPositions.Instance.GetPositionForNew(unitData));
+        }
+
+        public static bool IsAnyBuildsByUnit(Unit unit)
+        {
+            return unit.gameParameters.currentBuilds.Count > 0;
+        }
+
+        public static void CancelLastBuildInSelected()
+        {
+            var unit = UnitSelector.Instance.SelectedUnit;
+            
+            if (!IsAnyBuildsByUnit(unit))
+                return;
+
+            var currentBuilds = unit.gameParameters.currentBuilds;
+            
+            currentBuilds.RemoveAt(currentBuilds.Count - 1);
+            
+            UnitSelector.Instance.UpdateSelectedUnit();
         }
 
         private static Vector2 GetNearPosFromLast()
@@ -74,6 +95,11 @@ namespace LogicHelper
             _lastSpawnedUpper = !_lastSpawnedUpper;
 
             return returnPos;
+        }
+
+        private void Awake()
+        {
+            Instance = this;
         }
     }
 }

@@ -32,14 +32,14 @@ namespace GameUi
         {
             InActive();
 
-            if (type == ControlType.None)
-                return;
-
             var founded = pool.First(x => x.type == type);
 
-            founded?.panel.gameObject.SetActive(true);
+            if (founded == null)
+                return;
+            
+            founded.panel.gameObject.SetActive(true);
 
-            founded?.panel.UpdateValues(UnitSelector.Instance.SelectedUnit.gameParameters);
+            founded.panel.UpdateValues(UnitSelector.Instance.SelectedUnit.gameParameters);
             
             soldierPanel.UpdateActivePanel(type);
             

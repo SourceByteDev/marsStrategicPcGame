@@ -21,7 +21,7 @@ namespace GameUi
         {
             activeObjects.SetActive(true);
             
-            avatarImage.sprite = parameters.avatar;
+            avatarImage.sprite = parameters.avatarSet;
 
             nameText.text = parameters.unitName;
 

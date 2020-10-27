@@ -41,13 +41,11 @@ namespace GameUi.AddParameters
             if (currentBuilds.Count <= 0)
                 return;
 
-            var avatarSet = UnitSelector.Instance.SelectedUnit.gameParameters.buildSprite;
-
             foreach (var build in currentBuilds.ToList())
             {
                 var newUnitItem = Instantiate(itemPrefab, parentItems);
                 
-                newUnitItem.Init(build, avatarSet);
+                newUnitItem.Init(build, build.toBuildUnit.parameters.buildSprite);
             }
         }
 
