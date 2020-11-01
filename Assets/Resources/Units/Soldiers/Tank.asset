@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
-  m_Name: Worker
+  m_Name: Tank
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4670179328809907496, guid: dc13411394a4a504b99e1d6c346baee9, type: 3}
+  prefab: {fileID: 0}
   parameters:
-    poolType: 1
+    poolType: 0
     controlType: 0
     isGiveSupply: 0
     countSupply: 1
     startHealth: 100
-    maxCountToBuild: 0
+    maxCountToBuild: 4
     pricesLevelUpdate: 9001000084030000
-    avatarSet: {fileID: 21300000, guid: 9f9f3e09af139094586dc42ecad6aa1a, type: 3}
-    unitName: Worker
-    isRandomPosition: 1
-    buildSprite: {fileID: 21300000, guid: 254ba02c9392cd34f89ca5757d0d6fc5, type: 3}
-    priceBuild: 50
-    timeBuildSeconds: 5
+    avatarSet: {fileID: 0}
+    unitName: 
+    isRandomPosition: 0
+    buildSprite: {fileID: 0}
+    priceBuild: 100
+    timeBuildSeconds: 10
     priceModiferForLiveCount: 0
-    priceEnumerationForLiveCount: 1
-    enumerationPrice: 10
-    moveSpeed: 1
-    secondsToCollect: 3
+    priceEnumerationForLiveCount: 0
+    enumerationPrice: 0
+    moveSpeed: 0
+    secondsToCollect: 0

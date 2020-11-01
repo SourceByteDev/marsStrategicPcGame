@@ -49,10 +49,18 @@ namespace Manager
         private void CreateStartUnit()
         {
             var unitData = DataAccess.MainHouseUnit;
-
+            
             Managers.Values.values.CurrentMaxSupply = 10;
             
             UnitSpawner.Instance.SpawnUnit(unitData, homeStartPosition);
+
+            var workerUnit = DataAccess.WorkerUnit;
+
+            var startPositionWorker = homeStartPosition - Vector2.right * 5;
+            
+            UnitSpawner.Instance.SpawnUnit(workerUnit, startPositionWorker);
+
+            Managers.Values.values.CurrentSupply++;
         }
     }
 }

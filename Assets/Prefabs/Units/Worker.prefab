@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: d9e7ad35ae273d3449686b4dd2e73869, type: 2}
   initialSkinName: 
-  initialFlipX: 1
+  initialFlipX: 0
   initialFlipY: 0
   updateMode: 3
   updateWhenInvisible: 3
@@ -117,7 +117,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: move
+  _animationName: work
   loop: 1
   timeScale: 1
 --- !u!61 &4670179328809907499
@@ -133,7 +133,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3072937, y: -0.64570475}
+  m_Offset: {x: -0.54343116, y: -0.64570475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -144,7 +144,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.668825, y: 3.7365046}
+  m_Size: {x: 3.3702748, y: 3.7365046}
   m_EdgeRadius: 0
 --- !u!114 &4670179328809907496
 MonoBehaviour:
@@ -172,4 +172,11 @@ MonoBehaviour:
     countSupply: 0
     isGiveSupply: 0
     price: 0
+    isRandomPosition: 0
     currentBuilds: []
+    moveParameters:
+      moveSpeed: 0
+      workerMove:
+        workerMoveState: 0
+        currentSecondsCollect: 0
+        maxSecondsToCollect: 0

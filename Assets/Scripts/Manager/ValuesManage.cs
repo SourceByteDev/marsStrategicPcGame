@@ -19,14 +19,24 @@ namespace Manager
         public UnityAction onSomeValueChanged;
 
         public int CurrentMaxCountWorkers => 5 + values.LiveUnits[0].parameters.currentLevel * 5;
-        
+
         private readonly PathData path = new PathData("values");
+
+        public LiveUnitData GetLiveUnitByUnit(Unit unit)
+        {
+            var liveUnits = Managers.Values.values.LiveUnits;
+
+            var foundUnit = liveUnits.Find(x =>
+                x.parameters == unit.gameParameters && Vector2.Distance(unit.transform.position, x.position) < .1f);
+
+            return foundUnit;
+        }
 
         public bool IsSupplyFullIfSell(int removeFromMax)
         {
             return values.CurrentSupply > values.CurrentMaxSupply - removeFromMax;
         }
-        
+
         public bool IsSupplyFull(int addSupply)
         {
             return values.CurrentSupply + addSupply > values.CurrentMaxSupply;
@@ -96,6 +106,21 @@ namespace Manager
         private void Awake()
         {
             Load();
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            Save();
+        }
+
+        private void OnApplicationQuit()
+        {
+            Save();
+        }
+
+        private void OnApplicationPause(bool pauseStatus)
+        {
+            Save();
         }
 
         [Serializable]
@@ -193,7 +218,7 @@ namespace Manager
         }
 
         [Serializable]
-        public struct LiveUnitData
+        public class LiveUnitData
         {
             public Vector2 position;
 

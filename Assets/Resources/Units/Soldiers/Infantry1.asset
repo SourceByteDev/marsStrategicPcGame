@@ -19,11 +19,16 @@ MonoBehaviour:
     isGiveSupply: 0
     countSupply: 2
     startHealth: 5
-    maxCountToBuild: 4
+    maxCountToBuild: 0
     pricesLevelUpdate: 9001000084030000
-    avatarSet: {fileID: 0}
-    unitName: Infantry_1
-    buildSprite: {fileID: 0}
-    priceBuild: 100
-    timeBuildSeconds: 10
+    avatarSet: {fileID: 21300000, guid: 43c69a3f078ee03428bf1563510edcb4, type: 3}
+    unitName: Infantry 1
+    isRandomPosition: 1
+    buildSprite: {fileID: 21300000, guid: 36b8935382741184682fd984a1c0ca8d, type: 3}
+    priceBuild: 10
+    timeBuildSeconds: 5
     priceModiferForLiveCount: 0
+    priceEnumerationForLiveCount: 0
+    enumerationPrice: 0
+    moveSpeed: 1
+    secondsToCollect: 0

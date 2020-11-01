@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
-  m_Name: Worker
+  m_Name: Infantry3
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4670179328809907496, guid: dc13411394a4a504b99e1d6c346baee9, type: 3}
+  prefab: {fileID: 3529196239730594600, guid: 61e4b22e29549994897a0c6f5dac7de4, type: 3}
   parameters:
     poolType: 1
     controlType: 0
     isGiveSupply: 0
-    countSupply: 1
-    startHealth: 100
+    countSupply: 5
+    startHealth: 15
     maxCountToBuild: 0
     pricesLevelUpdate: 9001000084030000
-    avatarSet: {fileID: 21300000, guid: 9f9f3e09af139094586dc42ecad6aa1a, type: 3}
-    unitName: Worker
+    avatarSet: {fileID: 21300000, guid: 43c69a3f078ee03428bf1563510edcb4, type: 3}
+    unitName: Infantry 3
     isRandomPosition: 1
-    buildSprite: {fileID: 21300000, guid: 254ba02c9392cd34f89ca5757d0d6fc5, type: 3}
-    priceBuild: 50
-    timeBuildSeconds: 5
+    buildSprite: {fileID: 21300000, guid: 36b8935382741184682fd984a1c0ca8d, type: 3}
+    priceBuild: 30
+    timeBuildSeconds: 15
     priceModiferForLiveCount: 0
-    priceEnumerationForLiveCount: 1
-    enumerationPrice: 10
-    moveSpeed: 1
-    secondsToCollect: 3
+    priceEnumerationForLiveCount: 0
+    enumerationPrice: 0
+    moveSpeed: 1.3
+    secondsToCollect: 0

@@ -170,17 +170,17 @@ namespace GameUi.ControlPanels
 
             public GameObject BuildTier2Part => buildTier2Part;
         }
+    }
+    
+    [Serializable]
+    public struct UnitBuyButton
+    {
+        [SerializeField] private FetchButton button;
 
-        [Serializable]
-        public struct UnitBuyButton
-        {
-            [SerializeField] private FetchButton button;
+        [SerializeField] private UnitData data;
 
-            [SerializeField] private UnitData data;
+        public FetchButton Button => button;
 
-            public FetchButton Button => button;
-
-            public UnitData Data => data;
-        }
+        public UnitData Data => data;
     }
 }

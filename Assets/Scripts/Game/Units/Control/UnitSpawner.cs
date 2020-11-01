@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common.Extensions;
 using Data;
 using Game.Units.Unit_Types;
 using Manager;
@@ -8,7 +9,7 @@ using UnityEngine.Events;
 
 namespace Game.Units.Control
 {
-    public class UnitSpawner : MonoBehaviour
+    public class UnitSpawner : Singleton<UnitSpawner>
     {
         public Transform parentPlayerBuildings;
 
@@ -20,8 +21,6 @@ namespace Game.Units.Control
 
         public List<Unit> currentUnits;
 
-        public static UnitSpawner Instance { get; private set; }
-
         public UnityAction<Unit> onUnitSpawned;
 
         public UnityAction<Unit> onUnitDestroyed;
@@ -30,12 +29,9 @@ namespace Game.Units.Control
         {
             currentUnits.Remove(unit);
 
-            var liveUnits = Managers.Values.values.LiveUnits;
+            var foundUnit = Managers.Values.GetLiveUnitByUnit(unit);
 
-            var foundUnit = liveUnits.Find(x =>
-                x.parameters == unit.gameParameters && Vector2.Distance(unit.transform.position, x.position) < .1f);
-
-            liveUnits.Remove(foundUnit);
+            Managers.Values.values.LiveUnits.Remove(foundUnit);
             
             onUnitDestroyed?.Invoke(unit);
             
@@ -96,11 +92,6 @@ namespace Game.Units.Control
                 default:
                     return null;
             }
-        }
-
-        private void Awake()
-        {
-            Instance = this;
         }
     }
 }

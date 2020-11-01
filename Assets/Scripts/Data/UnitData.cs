@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Units.Control;
 using Game.Units.Unit_Types;
 using LogicHelper;
 using UnityEngine;
@@ -63,6 +64,18 @@ namespace Data
         public bool priceEnumerationForLiveCount;
 
         public int enumerationPrice;
+
+        [Header("Mover parameters")]
+        
+        [SerializeField] private float moveSpeed;
+
+        [Header("Worker parameters")]
+        
+        [SerializeField] private int secondsToCollect;
+        
+        public float MoveSpeed => moveSpeed;
+
+        public int SecondsToCollect => secondsToCollect;
     }
 
     [Serializable]
@@ -97,6 +110,8 @@ namespace Data
         public bool isRandomPosition;
         
         public List<BuildUnitParameters> currentBuilds = new List<BuildUnitParameters>();
+
+        public MoveParameters moveParameters;
         
         public bool IsMaxLevelNow => currentLevel >= MaxLevel;
 
@@ -133,6 +148,15 @@ namespace Data
             price = parameters.priceBuild;
 
             isRandomPosition = parameters.isRandomPosition;
+
+            moveParameters = new MoveParameters
+            {
+                MoveSpeed = parameters.MoveSpeed, 
+                WorkerMove = new WorkerMoveParameters(),
+                InfantryMove = new InfantryMoveParameters()
+            };
+
+            moveParameters.WorkerMove.MaxSecondsToCollect = parameters.SecondsToCollect;
         }
     }
 
@@ -166,6 +190,88 @@ namespace Data
                 BuildCurrent();
             }
         }
+    }
+    
+    [Serializable]
+    public class MoveParameters
+    {
+        [SerializeField] private float moveSpeed;
+        
+        [SerializeField] private WorkerMoveParameters workerMove;
+
+        [SerializeField] private InfantryMoveParameters infantryMove;
+        
+        public float MoveSpeed
+        {
+            get => moveSpeed;
+            set => moveSpeed = value;
+        }
+        
+        public WorkerMoveParameters WorkerMove
+        {
+            get => workerMove;
+            set => workerMove = value;
+        }
+
+        public InfantryMoveParameters InfantryMove
+        {
+            get => infantryMove;
+            set => infantryMove = value;
+        }
+    }
+
+    [Serializable]
+    public class WorkerMoveParameters
+    {
+        [SerializeField] private WorkerMoveState workerMoveState;
+
+        [SerializeField] private int currentSecondsCollect;
+
+        [SerializeField] private int maxSecondsToCollect;
+
+        public int MaxSecondsToCollect
+        {
+            get => maxSecondsToCollect;
+            set => maxSecondsToCollect = value;
+        }
+
+        public WorkerMoveState WorkerMoveState
+        {
+            get => workerMoveState;
+            set => workerMoveState = value;
+        }
+
+        public int SecondsToCollect
+        {
+            get => currentSecondsCollect;
+            set => currentSecondsCollect = value;
+        }
+    }
+
+    [Serializable]
+    public class InfantryMoveParameters
+    {
+        [SerializeField] private InfantryMoveState moveState;
+
+        public InfantryMoveState MoveState
+        {
+            get => moveState;
+            set => moveState = value;
+        }
+    }
+
+    public enum InfantryMoveState
+    {
+        MovingToPoint,
+        WaitingTarget,
+        Attacking
+    }
+    
+    public enum WorkerMoveState
+    {
+        GoToGems,
+        CollectingGems,
+        GoToHome
     }
     
     public enum PoolType

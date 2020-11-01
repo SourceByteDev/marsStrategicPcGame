@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Extensions;
 using Data;
 using LogicHelper;
 using Manager;
@@ -9,12 +10,12 @@ using UnityEngine.Events;
 
 namespace GameUi
 {
-    public class Timer : MonoBehaviour
+    public class Timer : Singleton<Timer>
     {
-        public static UnityAction OnSecond { get; set; }
-        
         private Coroutine timer;
         
+        public UnityAction OnSecond { get; set; }
+
         public void StartTimer()
         {
             if (timer != null)
@@ -34,7 +35,7 @@ namespace GameUi
                 
                 UnitProcessBuild.AddAllSeconds(); 
                 
-                // OnSecond?.Invoke();
+                OnSecond?.Invoke();
                 
                 yield return new WaitForSeconds(1);
             }
