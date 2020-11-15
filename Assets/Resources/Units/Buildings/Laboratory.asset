@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 8874109934493879764, guid: cb145bad1202721439e4e74d089b2eba, type: 3}
   parameters:
     poolType: 0
-    controlType: 0
+    controlType: 5
     isGiveSupply: 0
     countSupply: 4
     startHealth: 1000
@@ -23,7 +23,12 @@ MonoBehaviour:
     pricesLevelUpdate: 
     avatarSet: {fileID: 21300000, guid: ff79e5ad5227fd74aa853e4bc0c29dfc, type: 3}
     unitName: Laboratory
+    isRandomPosition: 0
     buildSprite: {fileID: 21300000, guid: d168154f490c6634bbe9a510a3859428, type: 3}
     priceBuild: 200
     timeBuildSeconds: 15
     priceModiferForLiveCount: 0
+    priceEnumerationForLiveCount: 0
+    enumerationPrice: 0
+    moveSpeed: 0
+    secondsToCollect: 0

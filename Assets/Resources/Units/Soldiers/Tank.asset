@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   parameters:
-    poolType: 0
+    upgradeType: 1
+    poolType: 1
     controlType: 0
     isGiveSupply: 0
     countSupply: 1
@@ -22,7 +23,7 @@ MonoBehaviour:
     maxCountToBuild: 4
     pricesLevelUpdate: 9001000084030000
     avatarSet: {fileID: 0}
-    unitName: 
+    unitName: Tank
     isRandomPosition: 0
     buildSprite: {fileID: 0}
     priceBuild: 100

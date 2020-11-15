@@ -24,9 +24,6 @@ namespace GameUi
             timer = StartCoroutine(Timing());
         }
 
-        
-        
-        
         private IEnumerator Timing()
         {
             while (true)

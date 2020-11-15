@@ -68,7 +68,7 @@ namespace Game.Units.Control
 
             var unitMoveParameters = unitParameters.moveParameters;
 
-            unitMover.Speed = unitMoveParameters.MoveSpeed;
+            unitMover.Parameters = unit.gameParameters;
 
             switch (unit)
             {
@@ -125,12 +125,14 @@ namespace Game.Units.Control
     {
         UnityAction<Unit> OnGotTarget { get; set; }
 
-        float Speed { get; set; }
+        float Speed { get; }
 
         Vector2 Position { get; set; }
         
         Vector2 Target { get; set; }
 
+        UnitGameParameters Parameters { get; set; }
+        
         void MoveCurrent();
     }
 }

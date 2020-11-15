@@ -61,6 +61,7 @@ namespace Game.Units.Unit_Types
         House,
         Barracks,
         Soldier,
-        Worker
+        Worker,
+        Laboratory
     }
 }

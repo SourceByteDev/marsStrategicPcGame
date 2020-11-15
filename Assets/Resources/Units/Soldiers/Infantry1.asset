@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3431903309315802505, guid: b7acfd9237949124989685ef6e6ccdd3, type: 3}
   parameters:
+    upgradeType: 1
     poolType: 1
     controlType: 0
     isGiveSupply: 0

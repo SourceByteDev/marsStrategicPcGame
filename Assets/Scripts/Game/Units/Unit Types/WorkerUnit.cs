@@ -17,9 +17,10 @@ namespace Game.Units.Unit_Types
         
         public UnityAction<Unit> OnGotTarget { get; set; }
 
-        public float Speed { get; set; }
+        public float Speed => Parameters.moveParameters.MoveSpeed;
 
         public Vector2 Target { get; set; }
+        public UnitGameParameters Parameters { get; set; }
 
         public WorkerMoveState MoveState
         {

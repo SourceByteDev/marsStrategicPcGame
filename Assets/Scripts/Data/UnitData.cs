@@ -27,6 +27,8 @@ namespace Data
     [Serializable]
     public class UnitParameters
     {
+        [SerializeField] private UnitUpgrader.TypeUpgrade upgradeType;
+
         public PoolType poolType;
         
         public ControlType controlType;
@@ -76,6 +78,8 @@ namespace Data
         public float MoveSpeed => moveSpeed;
 
         public int SecondsToCollect => secondsToCollect;
+
+        public UnitUpgrader.TypeUpgrade UpgradeType => upgradeType;
     }
 
     [Serializable]
@@ -112,6 +116,8 @@ namespace Data
         public List<BuildUnitParameters> currentBuilds = new List<BuildUnitParameters>();
 
         public MoveParameters moveParameters;
+
+        public UnitUpgrader.TypeUpgrade typeUpgrade;
         
         public bool IsMaxLevelNow => currentLevel >= MaxLevel;
 
@@ -149,6 +155,8 @@ namespace Data
 
             isRandomPosition = parameters.isRandomPosition;
 
+            typeUpgrade = parameters.UpgradeType;
+            
             moveParameters = new MoveParameters
             {
                 MoveSpeed = parameters.MoveSpeed, 
