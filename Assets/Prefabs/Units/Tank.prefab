@@ -183,3 +183,7 @@ MonoBehaviour:
       infantryMove:
         moveState: 0
     typeUpgrade: 0
+  moveName: move
+  startMoving: 0
+  startName: start
+  offsetStart: 0

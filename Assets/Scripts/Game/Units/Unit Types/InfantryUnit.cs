@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Data;
 using Game.Units.Control;
 using Manager;
@@ -10,7 +11,17 @@ namespace Game.Units.Unit_Types
 {
     public class InfantryUnit : Unit, IUnitMover
     {
-        private SkeletonAnimation _skeletonAnimation;
+        [SerializeField] private string moveName = "move";
+
+        [SerializeField] private bool needDoStart;
+
+        [SerializeField] private string startName = "start";
+
+        [SerializeField] private float offsetStart = 1.2f;
+
+        private bool isStarting;
+        
+        private SkeletonAnimation skeletonAnimation;
         
         public UnityAction<Unit> OnGotTarget { get; set; }
         public float Speed => Parameters.moveParameters.MoveSpeed;
@@ -25,6 +36,7 @@ namespace Game.Units.Unit_Types
                 MyLiveUnit.position = value;
             }
         }
+        
         public Vector2 Target { get; set; }
         
         public UnitGameParameters Parameters { get; set; }
@@ -46,7 +58,7 @@ namespace Game.Units.Unit_Types
 
         public void MoveCurrent()
         {
-            if (MoveState != InfantryMoveState.MovingToPoint)
+            if (MoveState != InfantryMoveState.MovingToPoint || isStarting)
                 return;
             
             var myPosition = Position;
@@ -73,29 +85,51 @@ namespace Game.Units.Unit_Types
                     animationName = "attack";
                     break;
                 case InfantryMoveState.MovingToPoint:
-                    animationName = "move";
+                    animationName = moveName;
                     break;
             }
 
             print("change some " + animationName);
             
-            _skeletonAnimation.AnimationName = animationName;
+            skeletonAnimation.AnimationName = animationName;
         }
 
         private void Start()
         {
             OnMoveStateChanged += OnStateChanged;
 
-            _skeletonAnimation = GetComponent<SkeletonAnimation>();
+            skeletonAnimation = GetComponent<SkeletonAnimation>();
 
             MyLiveUnit = Managers.Values.GetLiveUnitByUnit(this);
 
             MoveState = MoveState;
+
+            if (needDoStart)
+                StartCoroutine(Starting());
         }
 
         private void FixedUpdate()
         {
             MoveCurrent();
+        }
+
+        private IEnumerator Starting()
+        {
+            skeletonAnimation.loop = false;
+
+            var lastName = skeletonAnimation.AnimationName;
+
+            skeletonAnimation.AnimationName = startName;
+
+            isStarting = true;
+            
+            yield return new WaitForSeconds(offsetStart);
+
+            skeletonAnimation.loop = true;
+
+            skeletonAnimation.name = lastName;
+            
+            isStarting = false;
         }
     }
 }

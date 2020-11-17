@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
   m_Name: FlyPort
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5181487720380968854, guid: 11c95f6d0cf358449bc4f8bf827e49f6, type: 3}
+  prefab: {fileID: 2457522089633558618, guid: 11c95f6d0cf358449bc4f8bf827e49f6, type: 3}
   parameters:
+    upgradeType: 0
     poolType: 0
-    controlType: 0
+    controlType: 7
     isGiveSupply: 0
     countSupply: 3
     startHealth: 2000
@@ -23,7 +24,12 @@ MonoBehaviour:
     pricesLevelUpdate: 9001000084030000
     avatarSet: {fileID: 21300000, guid: bbeb94fdce31edc4a8db137da8c83932, type: 3}
     unitName: FlyPort
+    isRandomPosition: 0
     buildSprite: {fileID: 21300000, guid: ed17f55c4b824014e9247a2323feba56, type: 3}
     priceBuild: 500
     timeBuildSeconds: 30
     priceModiferForLiveCount: 0
+    priceEnumerationForLiveCount: 0
+    enumerationPrice: 0
+    moveSpeed: 0
+    secondsToCollect: 0

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5181487720380968852}
   - component: {fileID: 5181487720380968859}
   - component: {fileID: 5181487720380968858}
-  - component: {fileID: 5181487720380968854}
   - component: {fileID: 3170910834241504709}
+  - component: {fileID: 2457522089633558618}
   m_Layer: 0
   m_Name: FlyPort
   m_TagString: Untagged
@@ -120,7 +120,33 @@ MonoBehaviour:
   _animationName: flyport
   loop: 1
   timeScale: 1
---- !u!114 &5181487720380968854
+--- !u!61 &3170910834241504709
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181487720380968857}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.015961885, y: 0.0634259}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.981536, y: 2.0238905}
+  m_EdgeRadius: 0
+--- !u!114 &2457522089633558618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,29 +174,14 @@ MonoBehaviour:
     price: 0
     isRandomPosition: 0
     currentBuilds: []
---- !u!61 &3170910834241504709
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181487720380968857}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015961885, y: 0.0634259}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.981536, y: 2.0238905}
-  m_EdgeRadius: 0
+    moveParameters:
+      moveSpeed: 0
+      workerMove:
+        workerMoveState: 0
+        currentSecondsCollect: 0
+        maxSecondsToCollect: 0
+      infantryMove:
+        moveState: 0
+    typeUpgrade: 0
+  startName: flyport_dor
+  offset: 4.5

@@ -1,0 +1,153 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+antenna
+  rotate: false
+  xy: 674, 752
+  size: 107, 40
+  orig: 107, 40
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 794
+  size: 780, 221
+  orig: 780, 221
+  offset: 0, 0
+  index: -1
+fire
+  rotate: true
+  xy: 349, 30
+  size: 103, 57
+  orig: 103, 57
+  offset: 0, 0
+  index: -1
+glare
+  rotate: false
+  xy: 2, 651
+  size: 670, 141
+  orig: 670, 141
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 613, 469
+  size: 259, 64
+  orig: 259, 64
+  offset: 0, 0
+  index: -1
+gun_1
+  rotate: false
+  xy: 669, 360
+  size: 231, 107
+  orig: 231, 107
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 613, 633
+  size: 34, 16
+  orig: 34, 16
+  offset: 0, 0
+  index: -1
+radar
+  rotate: true
+  xy: 408, 254
+  size: 61, 27
+  orig: 61, 27
+  offset: 0, 0
+  index: -1
+radar_1
+  rotate: true
+  xy: 937, 553
+  size: 66, 30
+  orig: 66, 30
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 464
+  size: 609, 185
+  orig: 609, 185
+  offset: 0, 0
+  index: -1
+smoke_1
+  rotate: false
+  xy: 454, 250
+  size: 213, 212
+  orig: 213, 212
+  offset: 0, 0
+  index: -1
+smoke_2
+  rotate: false
+  xy: 408, 31
+  size: 288, 217
+  orig: 288, 217
+  offset: 0, 0
+  index: -1
+smoke_3
+  rotate: true
+  xy: 784, 707
+  size: 308, 231
+  orig: 308, 231
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 669, 281
+  size: 241, 77
+  orig: 241, 77
+  offset: 0, 0
+  index: -1
+tail_1
+  rotate: false
+  xy: 698, 85
+  size: 143, 118
+  orig: 143, 118
+  offset: 0, 0
+  index: -1
+turbine
+  rotate: false
+  xy: 674, 621
+  size: 325, 84
+  orig: 325, 84
+  offset: 0, 0
+  index: -1
+turbine_1
+  rotate: false
+  xy: 613, 535
+  size: 322, 84
+  orig: 322, 84
+  offset: 0, 0
+  index: -1
+turbine_2
+  rotate: false
+  xy: 2, 48
+  size: 345, 85
+  orig: 345, 85
+  offset: 0, 0
+  index: -1
+wing
+  rotate: false
+  xy: 698, 205
+  size: 317, 74
+  orig: 317, 74
+  offset: 0, 0
+  index: -1
+wing_1
+  rotate: false
+  xy: 2, 317
+  size: 450, 145
+  orig: 450, 145
+  offset: 0, 0
+  index: -1
+wing_2
+  rotate: false
+  xy: 2, 135
+  size: 404, 180
+  orig: 404, 180
+  offset: 0, 0
+  index: -1

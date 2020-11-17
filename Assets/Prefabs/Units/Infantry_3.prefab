@@ -180,3 +180,10 @@ MonoBehaviour:
         workerMoveState: 0
         currentSecondsCollect: 0
         maxSecondsToCollect: 0
+      infantryMove:
+        moveState: 0
+    typeUpgrade: 0
+  moveName: move
+  startMoving: 0
+  startName: start
+  offsetStart: 0

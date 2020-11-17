@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4093e22baac142259f8aea78fd2f7872, type: 3}
-  m_Name: Tank
+  m_Name: Flier
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6586456264103626264, guid: 00c4aa886209eb14e940154d672f9643, type: 3}
+  prefab: {fileID: 709717252943648623, guid: 4443be9e2d6de764b83ed841022a530f, type: 3}
   parameters:
-    upgradeType: 1
+    upgradeType: 0
     poolType: 1
     controlType: 0
     isGiveSupply: 0
@@ -22,11 +22,11 @@ MonoBehaviour:
     startHealth: 25
     maxCountToBuild: 0
     pricesLevelUpdate: 9001000084030000
-    avatarSet: {fileID: 21300000, guid: 159246c0f3b9b484a8edf229e025b123, type: 3}
-    unitName: Tank
-    isRandomPosition: 1
-    buildSprite: {fileID: 21300000, guid: 1eeaa8185b29ac747817b74eafc3ff0a, type: 3}
-    priceBuild: 100
+    avatarSet: {fileID: 21300000, guid: 328e53f38b10eb2428f79be3c83abda9, type: 3}
+    unitName: 
+    isRandomPosition: 0
+    buildSprite: {fileID: 21300000, guid: fd21c657e56feb34b836a77ae194c5e4, type: 3}
+    priceBuild: 60
     timeBuildSeconds: 30
     priceModiferForLiveCount: 0
     priceEnumerationForLiveCount: 0

@@ -30,6 +30,11 @@ namespace Game.Units.Unit_Types
             }
         }
 
+        public virtual void OnSpawnedSome(BuildUnitParameters unit)
+        {
+            print("From " + name + " spawned " + unit.toBuildUnit.parameters.unitName);
+        }
+        
         public void InitParameters(UnitData data)
         {
             gameParameters = new UnitGameParameters(data);
@@ -63,6 +68,7 @@ namespace Game.Units.Unit_Types
         Soldier,
         Worker,
         Laboratory,
-        Factory
+        Factory,
+        FlyPort
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Data;
+using Game.Units.Control;
 using Game.Units.Unit_Types;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,6 +31,24 @@ namespace Manager
                 x.parameters == unit.gameParameters && Vector2.Distance(unit.transform.position, x.position) < .1f);
 
             return foundUnit;
+        }
+
+        public Unit GetUnitByLiveUnit(LiveUnitData data)
+        {
+            var unitSpawner = UnitSpawner.Instance;
+
+            var allUnits = unitSpawner.currentUnits;
+
+            var isContains = allUnits.Any(x =>
+                x.gameParameters == data.parameters && Vector2.Distance(data.position, x.transform.position) < .1f);
+
+            if (!isContains)
+                return null;
+
+            var found = allUnits.Find(x =>
+                x.gameParameters == data.parameters && Vector2.Distance(data.position, x.transform.position) < .1f);
+
+            return found;
         }
 
         public bool IsSupplyFullIfSell(int removeFromMax)

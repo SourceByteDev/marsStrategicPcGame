@@ -38,12 +38,14 @@ namespace LogicHelper
         {
             var liveUnits = Managers.Values.values.LiveUnits;
 
-            var foundedUnits = liveUnits.Find(x => 
+            var foundUnit = liveUnits.Find(x => 
                 x.parameters.currentBuilds.Contains(parameters));
 
             var unitData = parameters.toBuildUnit;
             
-            foundedUnits.parameters.currentBuilds.Remove(parameters);
+            foundUnit.parameters.currentBuilds.Remove(parameters);
+
+            Managers.Values.GetUnitByLiveUnit(foundUnit).OnSpawnedSome(parameters);
             
             UnitSpawner.Instance.SpawnUnit(unitData, UnitPositions.Instance.GetPositionForNew(unitData));
         }
