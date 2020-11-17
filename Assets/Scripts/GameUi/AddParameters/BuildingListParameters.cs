@@ -25,7 +25,8 @@ namespace GameUi.AddParameters
         
         public void UpdateActivePanel(ControlType type)
         {
-            var isActive = type == ControlType.House || type == ControlType.Barracks;
+            // TODO: CHANGE TO SOMETHING, P L E A S E!
+            var isActive = type == ControlType.House || type == ControlType.Barracks || type == ControlType.Factory;
 
             activeItems.SetActive(isActive);
 

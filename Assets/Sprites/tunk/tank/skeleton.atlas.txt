@@ -1,0 +1,118 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bolid
+  rotate: true
+  xy: 834, 496
+  size: 57, 15
+  orig: 57, 15
+  offset: 0, 0
+  index: -1
+dust
+  rotate: true
+  xy: 745, 69
+  size: 221, 170
+  orig: 221, 170
+  offset: 0, 0
+  index: -1
+dust_1
+  rotate: false
+  xy: 2, 80
+  size: 190, 164
+  orig: 190, 164
+  offset: 0, 0
+  index: -1
+faer
+  rotate: true
+  xy: 917, 107
+  size: 183, 95
+  orig: 183, 95
+  offset: 0, 0
+  index: -1
+front wheel
+  rotate: false
+  xy: 794, 777
+  size: 59, 59
+  orig: 59, 59
+  offset: 0, 0
+  index: -1
+front wheel_1
+  rotate: false
+  xy: 917, 33
+  size: 73, 72
+  orig: 73, 72
+  offset: 0, 0
+  index: -1
+gan
+  rotate: true
+  xy: 794, 396
+  size: 157, 38
+  orig: 157, 38
+  offset: 0, 0
+  index: -1
+gan_1
+  rotate: true
+  xy: 666, 98
+  size: 296, 77
+  orig: 296, 77
+  offset: 0, 0
+  index: -1
+gan_2
+  rotate: true
+  xy: 794, 555
+  size: 220, 51
+  orig: 220, 51
+  offset: 0, 0
+  index: -1
+gases
+  rotate: true
+  xy: 194, 125
+  size: 119, 134
+  orig: 119, 134
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 838
+  size: 857, 184
+  orig: 857, 184
+  offset: 0, 0
+  index: -1
+shadow_truk
+  rotate: true
+  xy: 861, 292
+  size: 730, 161
+  orig: 730, 161
+  offset: 0, 0
+  index: -1
+truk_background
+  rotate: false
+  xy: 2, 246
+  size: 662, 148
+  orig: 662, 148
+  offset: 0, 0
+  index: -1
+tunk
+  rotate: false
+  xy: 2, 468
+  size: 790, 368
+  orig: 790, 368
+  offset: 0, 0
+  index: -1
+wheel
+  rotate: true
+  xy: 330, 173
+  size: 71, 72
+  orig: 71, 72
+  offset: 0, 0
+  index: -1
+wheel_1
+  rotate: false
+  xy: 745, 297
+  size: 97, 97
+  orig: 97, 97
+  offset: 0, 0
+  index: -1

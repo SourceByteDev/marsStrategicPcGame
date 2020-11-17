@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 470921643180067558, guid: 54f8d5af8773ae74f94f4a30289411e6, type: 3}
   parameters:
+    upgradeType: 0
     poolType: 0
-    controlType: 0
+    controlType: 6
     isGiveSupply: 0
     countSupply: 2
     startHealth: 1000
@@ -23,7 +24,12 @@ MonoBehaviour:
     pricesLevelUpdate: 9001000084030000
     avatarSet: {fileID: 21300000, guid: 2fc88df44fa8784478cb411d5f077153, type: 3}
     unitName: Factory
+    isRandomPosition: 0
     buildSprite: {fileID: 21300000, guid: 99777dd3518b3974982ef9812fdc08ea, type: 3}
     priceBuild: 65
     timeBuildSeconds: 20
     priceModiferForLiveCount: 0
+    priceEnumerationForLiveCount: 0
+    enumerationPrice: 0
+    moveSpeed: 0
+    secondsToCollect: 0
