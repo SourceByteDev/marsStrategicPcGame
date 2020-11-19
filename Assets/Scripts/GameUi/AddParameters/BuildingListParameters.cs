@@ -22,7 +22,8 @@ namespace GameUi.AddParameters
             ControlType.House,
             ControlType.Barracks,
             ControlType.Factory,
-            ControlType.FlyPort
+            ControlType.FlyPort,
+            ControlType.Laboratory
         };
 
         public void InActive()

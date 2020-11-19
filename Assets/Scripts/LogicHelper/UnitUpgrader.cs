@@ -54,16 +54,33 @@ namespace LogicHelper
 
             var rightSeconds = 0;
 
+            var values = Managers.Values.values;
+            
             switch (variableType)
             {
                 case TypeVariableUpgrade.Weapon:
-                    rightSeconds = rightUpgrade.Weapon.SecondsToGet;
+                    var weapon = rightUpgrade.Weapon;
+
+                    if (!values.TryRemoveGems(weapon.Price))
+                        return;
+                    
+                    rightSeconds = weapon.SecondsToGet;
                     break;
                 case TypeVariableUpgrade.Speed:
-                    rightSeconds = rightUpgrade.Speed.SecondsToGet;
+                    var speed = rightUpgrade.Speed;
+                    
+                    if (!values.TryRemoveGems(speed.Price))
+                        return;
+                    
+                    rightSeconds = speed.SecondsToGet;
                     break;
                 case TypeVariableUpgrade.Health:
-                    rightSeconds = rightUpgrade.Health.SecondsToGet;
+                    var health = rightUpgrade.Health;
+
+                    if (!values.TryRemoveGems(health.Price))
+                        return;
+                    
+                    rightSeconds = health.SecondsToGet;
                     break;
             }
 
@@ -93,9 +110,6 @@ namespace LogicHelper
 
                     var health = rightUpgrade.Health;
 
-                    if (!values.TryRemoveGems(health.Price))
-                        break;
-
                     units.ForEach(x => x.parameters.currentHealth += (int) health.Value);
 
                     units.ForEach(x => x.parameters.startHealth += (int) health.Value);
@@ -105,9 +119,6 @@ namespace LogicHelper
                 case TypeVariableUpgrade.Speed:
 
                     var speed = rightUpgrade.Speed;
-
-                    if (!values.TryRemoveGems(speed.Price))
-                        break;
 
                     units.ForEach(x => x.parameters.moveParameters.MoveSpeed += speed.Value);
 
@@ -151,6 +162,17 @@ namespace LogicHelper
             Save();
         }
 
+        public static void DoClear()
+        {
+            if (!File.Exists(SavePath))
+                return;
+            
+            File.Delete(SavePath);
+            
+            if (Instance != null)
+                Instance.save = new SaveUpgrades();
+        }
+        
         protected override void Awake()
         {
             base.Awake();

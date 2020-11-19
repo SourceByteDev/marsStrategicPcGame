@@ -13,6 +13,8 @@ namespace DeveloperPanel
 
         [SerializeField] private GemsParameters gemsParameters;
 
+        [SerializeField] private ObjectParameters objectParameters;
+
         private static void SetGemsCount(int gems)
         {
             Managers.Values.values.CurrentGemsCount = gems;
@@ -20,6 +22,11 @@ namespace DeveloperPanel
             UnitSelector.Instance.UpdateSelectedUnit();
         }
 
+        public void SetActiveObjects(bool isActive)
+        {
+            objectParameters.IsOpened = isActive;
+        }
+        
         private void SetTimeScale(float value)
         {
             var roundValue = (float) Math.Round(value, 1);
@@ -44,6 +51,32 @@ namespace DeveloperPanel
                 
                 SetGemsCount(count);
             });
+
+            objectParameters.IsOpened = false;
+        }
+
+        [Serializable]
+        private struct ObjectParameters
+        {
+            [SerializeField] private GameObject toOpenPanel;
+
+            [SerializeField] private GameObject openedPanel;
+
+            private bool isOpened;
+            
+            public bool IsOpened
+            {
+                get => isOpened;
+
+                set
+                {
+                    isOpened = value;
+                    
+                    toOpenPanel.SetActive(!value);
+                    
+                    openedPanel.SetActive(value);
+                }
+            }
         }
 
         [Serializable]

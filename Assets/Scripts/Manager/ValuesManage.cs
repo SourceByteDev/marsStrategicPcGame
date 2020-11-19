@@ -5,6 +5,7 @@ using System.Linq;
 using Data;
 using Game.Units.Control;
 using Game.Units.Unit_Types;
+using LogicHelper;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -75,6 +76,8 @@ namespace Manager
             values.LiveUnits.Clear();
 
             PlayerPrefs.DeleteAll();
+            
+            UnitUpgrader.DoClear();
 
             print("Reset values");
 
