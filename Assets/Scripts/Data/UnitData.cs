@@ -287,6 +287,7 @@ namespace Data
         PlayerBuilding,
         PlayerSoldier,
         EnemyBuilding,
-        EnemySoldier
+        EnemySoldier,
+        Upgrade
     }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Common.Extensions;
 using Data;
+using Game.GameHoverHelper;
 using Game.Units.Control;
 using GameUi;
 using Manager;
@@ -20,12 +21,28 @@ namespace LogicHelper
         [SerializeField] private UpgradeVariables ground;
 
         private static string SavePath => Path.Combine(Application.persistentDataPath, "upgrades.json");
-        
+
         private IEnumerable<UpgradeVariables> AllUpgrades => new[]
         {
             fly,
             ground
         };
+
+        public HoverPanel.BuildParameters GenerateParametersOf(TypeUpgrade upgradeType,
+            TypeVariableUpgrade variableType)
+        {
+            var rightUpgrade = AllUpgrades.ToList().Find(x => x.Type == upgradeType);
+
+            var rightVariable = rightUpgrade.GetVariableByType(variableType);
+
+            return new HoverPanel.BuildParameters()
+            {
+                IsGiveSupply = false,
+                Price = rightVariable.Price,
+                Supply = 0,
+                Time = rightVariable.SecondsToGet
+            };
+        }
 
         public bool CanUpgradeOf(TypeUpgrade upgradeType, TypeVariableUpgrade variableType)
         {
@@ -41,8 +58,15 @@ namespace LogicHelper
             return gems >= rightVariable.Price && !isInUpgrading;
         }
 
+        public void StartUpgradeTimer(TypeUpgrade type, TypeVariableUpgrade variable)
+        {
+        }
+
         public void StartUpgradeTimer(UpgradeItem item)
         {
+            if (save.CurrentUpgrades.Count(x => x.SecondsToGet > 0) >= 4)
+                return;
+
             var upgradeType = item.UpgradeType;
 
             var variableType = item.VariableUpgrade;
@@ -55,7 +79,9 @@ namespace LogicHelper
             var rightSeconds = 0;
 
             var values = Managers.Values.values;
-            
+
+            var data = rightUpgrade.Health.Data;
+
             switch (variableType)
             {
                 case TypeVariableUpgrade.Weapon:
@@ -63,29 +89,37 @@ namespace LogicHelper
 
                     if (!values.TryRemoveGems(weapon.Price))
                         return;
-                    
+
                     rightSeconds = weapon.SecondsToGet;
+
+                    data = weapon.Data;
                     break;
                 case TypeVariableUpgrade.Speed:
                     var speed = rightUpgrade.Speed;
-                    
+
                     if (!values.TryRemoveGems(speed.Price))
                         return;
-                    
+
                     rightSeconds = speed.SecondsToGet;
+
+                    data = speed.Data;
                     break;
                 case TypeVariableUpgrade.Health:
                     var health = rightUpgrade.Health;
 
                     if (!values.TryRemoveGems(health.Price))
                         return;
-                    
+
                     rightSeconds = health.SecondsToGet;
+
+                    data = health.Data;
                     break;
             }
 
-            save.CurrentUpgrades.Add(new UpgradeItem(upgradeType, variableType, rightSeconds));
-            
+            save.CurrentUpgrades.Add(new UpgradeItem(upgradeType, variableType, data, rightSeconds));
+
+            UnitBuilder.AddUnitCurrentToBuild(data);
+
             UnitSelector.Instance.UpdateSelectedUnit();
         }
 
@@ -158,7 +192,7 @@ namespace LogicHelper
         private void Clear()
         {
             save = new SaveUpgrades();
-            
+
             Save();
         }
 
@@ -166,17 +200,17 @@ namespace LogicHelper
         {
             if (!File.Exists(SavePath))
                 return;
-            
+
             File.Delete(SavePath);
-            
+
             if (Instance != null)
                 Instance.save = new SaveUpgrades();
         }
-        
+
         protected override void Awake()
         {
             base.Awake();
-            
+
             Load();
         }
 
@@ -191,7 +225,7 @@ namespace LogicHelper
         {
             if (!pauseStatus)
                 return;
-            
+
             Save();
         }
 
@@ -249,6 +283,8 @@ namespace LogicHelper
 
             [SerializeField] private int secondsToGet;
 
+            [SerializeField] private UnitData data;
+
             public float Value => value;
 
             public int Price => price;
@@ -256,6 +292,8 @@ namespace LogicHelper
             public TypeVariableUpgrade Type => type;
 
             public int SecondsToGet => secondsToGet;
+
+            public UnitData Data => data;
         }
 
         [Serializable]
@@ -292,9 +330,13 @@ namespace LogicHelper
 
             [SerializeField] private int secondsToGet;
 
+            [SerializeField] private UnitData data;
+
             public TypeUpgrade UpgradeType => upgradeType;
 
             public TypeVariableUpgrade VariableUpgrade => variableUpgrade;
+
+            public UnitData Data => data;
 
             public int SecondsToGet
             {
@@ -302,13 +344,16 @@ namespace LogicHelper
                 set => secondsToGet = value;
             }
 
-            public UpgradeItem(TypeUpgrade typeUpgrade, TypeVariableUpgrade typeVariable, int secondsToGet = 0)
+            public UpgradeItem(TypeUpgrade typeUpgrade, TypeVariableUpgrade typeVariable, UnitData data = null,
+                int secondsToGet = 0)
             {
                 upgradeType = typeUpgrade;
 
                 variableUpgrade = typeVariable;
 
                 this.secondsToGet = secondsToGet;
+
+                this.data = data;
             }
         }
 

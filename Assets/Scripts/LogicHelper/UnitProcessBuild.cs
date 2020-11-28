@@ -45,6 +45,9 @@ namespace LogicHelper
             
             foundUnit.parameters.currentBuilds.Remove(parameters);
 
+            if (parameters.toBuildUnit.parameters.poolType == PoolType.Upgrade)
+                return;
+            
             Managers.Values.GetUnitByLiveUnit(foundUnit).OnSpawnedSome(parameters);
             
             UnitSpawner.Instance.SpawnUnit(unitData, UnitPositions.Instance.GetPositionForNew(unitData));

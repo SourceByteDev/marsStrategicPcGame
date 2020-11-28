@@ -1,5 +1,6 @@
 ﻿using System;
 using Data;
+using Game.GameHoverHelper;
 using Game.Units.Control;
 using Game.Units.Unit_Types;
 using Manager;
@@ -10,15 +11,37 @@ namespace LogicHelper
     public class UnitBuilder : MonoBehaviour
     {
         [SerializeField] private UnitData workerData;
-        
+
         public static UnitBuilder Instance { get; private set; }
+
+        public static HoverPanel.BuildParameters GenerateParametersOf(UnitData data)
+        {
+            var unitParameters = data.parameters;
+
+            var countLiveUnits = Managers.Values.CountOfAllTypes(data.parameters.avatarSet);
+
+            var price = unitParameters.priceModiferForLiveCount
+                ? unitParameters.priceBuild * (countLiveUnits + 1)
+                : unitParameters.priceBuild;
+
+            if (unitParameters.priceEnumerationForLiveCount)
+            {
+                price += unitParameters.enumerationPrice * countLiveUnits;
+            }
+
+            var parameters = new HoverPanel.BuildParameters(price, unitParameters.countSupply,
+                unitParameters.timeBuildSeconds,
+                unitParameters.isGiveSupply);
+
+            return parameters;
+        }
 
         public static bool CanBeUnitBuild(UnitData data)
         {
             var parameters = data.parameters;
 
             var countLiveUnits = Managers.Values.CountOfAllTypes(data.parameters.avatarSet);
-            
+
             // Check worker data
             if (data == Instance.workerData)
             {
@@ -62,6 +85,8 @@ namespace LogicHelper
                 new BuildUnitParameters(parameters.timeBuildSeconds, unitBuild));
 
             UnitSelector.Instance.UpdateSelectedUnit();
+
+            HoverPanelControl.Instance.UpdateLastElement();
 
             // Check maybe it give supply to max supply
             if (parameters.isGiveSupply)
