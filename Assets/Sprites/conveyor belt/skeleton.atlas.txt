@@ -1,0 +1,90 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back
+  rotate: false
+  xy: 611, 769
+  size: 399, 241
+  orig: 399, 241
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 341
+  size: 638, 426
+  orig: 638, 426
+  offset: 0, 0
+  index: -1
+conveyor_2
+  rotate: true
+  xy: 2, 991
+  size: 19, 52
+  orig: 19, 52
+  offset: 0, 0
+  index: -1
+gem_1
+  rotate: false
+  xy: 386, 963
+  size: 65, 47
+  orig: 65, 47
+  offset: 0, 0
+  index: -1
+gem_2
+  rotate: false
+  xy: 235, 966
+  size: 75, 44
+  orig: 75, 44
+  offset: 0, 0
+  index: -1
+gem_3
+  rotate: false
+  xy: 312, 966
+  size: 72, 44
+  orig: 72, 44
+  offset: 0, 0
+  index: -1
+gem_4
+  rotate: false
+  xy: 159, 969
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+light
+  rotate: true
+  xy: 56, 974
+  size: 36, 63
+  orig: 36, 63
+  offset: 0, 0
+  index: -1
+light_1
+  rotate: true
+  xy: 453, 960
+  size: 50, 67
+  orig: 50, 67
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 781
+  size: 607, 169
+  orig: 607, 169
+  offset: 0, 0
+  index: -1
+wheel_1
+  rotate: false
+  xy: 522, 952
+  size: 63, 58
+  orig: 63, 58
+  offset: 0, 0
+  index: -1
+wheel_2
+  rotate: false
+  xy: 121, 974
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
