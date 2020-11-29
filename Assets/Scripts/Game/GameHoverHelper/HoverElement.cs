@@ -120,7 +120,8 @@ namespace Game.GameHoverHelper
                 None,
                 BuildUnit,
                 SellCurrent,
-                UpgradeElement
+                UpgradeElement,
+                UpgradeMainHome
             }
         }
     }

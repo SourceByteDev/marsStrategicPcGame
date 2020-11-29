@@ -1,6 +1,7 @@
 ﻿using System;
 using Data;
 using Game.Units.Unit_Types;
+using LogicHelper;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -36,17 +37,18 @@ namespace Game.Units.Control
             
             OnUnitSelected.Invoke(unit);
 
+            unit.IsSelected = false;
+            
             unit.IsSelected = true;
         }
         
+        [ContextMenu("Test")]
         public void UpdateSelectedUnit()
         {
             if (SelectedUnit == null)
                 return;
 
-            SelectedUnit = SelectedUnit;
-            
-            OnUnitSelected.Invoke(SelectedUnit);
+            SelectUnit(SelectedUnit);
         }
         
         public void OnUnitNeedSelect(Unit unit)
@@ -75,6 +77,11 @@ namespace Game.Units.Control
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
+            UnitLevelUpdater.Instance.OnUnitLevelUpdated += unit => UpdateSelectedUnit();
         }
     }
 }

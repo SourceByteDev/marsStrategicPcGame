@@ -2,12 +2,15 @@
 using Game.Units.Unit_Types;
 using Manager;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LogicHelper
 {
-    public class UnitLevelUpdater : MonoBehaviour
+    public sealed class UnitLevelUpdater : MonoBehaviour
     {
-        public static UnitLevelUpdater Instance;
+        public static UnitLevelUpdater Instance { get; private set; }
+
+        public event UnityAction<Unit> OnUnitLevelUpdated;
 
         public void UpdateLevelOfUnit(Unit unit)
         {
@@ -18,11 +21,18 @@ namespace LogicHelper
                 return;
 
             unit.gameParameters.currentLevel++;
+            
+            OnOnUnitLevelUpdated(unit);
         }
         
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void OnOnUnitLevelUpdated(Unit unit)
+        {
+            OnUnitLevelUpdated?.Invoke(unit);
         }
     }
 }

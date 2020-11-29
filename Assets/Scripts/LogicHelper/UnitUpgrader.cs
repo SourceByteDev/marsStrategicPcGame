@@ -123,6 +123,16 @@ namespace LogicHelper
             UnitSelector.Instance.UpdateSelectedUnit();
         }
 
+        public void RemoveAllUpgradingItems()
+        {
+            var toRemoveItems = save.CurrentUpgrades.Where(x => x.SecondsToGet > 0).ToList();
+
+            foreach (var item in toRemoveItems)
+            {
+                save.CurrentUpgrades.Remove(item);
+            }
+        }
+
         public void DoUpgrade(UpgradeItem item)
         {
             var upgradeType = item.UpgradeType;

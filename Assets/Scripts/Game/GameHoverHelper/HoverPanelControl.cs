@@ -1,5 +1,7 @@
 ﻿using System;
 using Common.Extensions;
+using Game.Units.Control;
+using LogicHelper;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -49,6 +51,11 @@ namespace Game.GameHoverHelper
             {
                 HideCurrentElement();
             };
+
+            UnitSelector.Instance.OnUnitSelected += delegate
+            {
+                UpdateLastElement();
+            };
         }
         
         private void Start()
@@ -56,6 +63,11 @@ namespace Game.GameHoverHelper
             InitCallbacks();
             
             HideCurrentElement();
+
+            UnitSelector.Instance.OnUnitDeSelect += delegate
+            {
+                HideCurrentElement();
+            };
         }
 
         [Serializable]

@@ -59,8 +59,13 @@ namespace GameUi.ControlPanels
             buttons.FlyButton.onClick.AddListener(OpenFly);
             
             buttons.GroundButton.onClick.AddListener(OpenGround);
-            
-            buttons.SellButton.onClick.AddListener(seller.TrySellSelectedUnit);
+
+            buttons.SellButton.onClick.AddListener(delegate
+            {
+                UnitUpgrader.Instance.RemoveAllUpgradingItems();
+                
+                seller.TrySellSelectedUnit();
+            });
             
             buttons.BackButtons.ToList().ForEach(x => x.onClick.AddListener(OpenMain));
         }

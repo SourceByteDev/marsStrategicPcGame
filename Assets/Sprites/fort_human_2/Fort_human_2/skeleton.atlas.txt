@@ -1,0 +1,83 @@
+
+skeleton.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base
+  rotate: false
+  xy: 2, 1245
+  size: 1021, 777
+  orig: 1021, 777
+  offset: 0, 0
+  index: -1
+cylinder
+  rotate: false
+  xy: 1517, 1564
+  size: 198, 170
+  orig: 198, 170
+  offset: 0, 0
+  index: -1
+cylinder_back
+  rotate: false
+  xy: 1898, 1875
+  size: 112, 84
+  orig: 112, 84
+  offset: 0, 0
+  index: -1
+fan
+  rotate: false
+  xy: 1898, 1789
+  size: 93, 84
+  orig: 93, 84
+  offset: 0, 0
+  index: -1
+light
+  rotate: true
+  xy: 2010, 2014
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+lights
+  rotate: false
+  xy: 1628, 1961
+  size: 380, 61
+  orig: 380, 61
+  offset: 0, 0
+  index: -1
+steam
+  rotate: false
+  xy: 1025, 1690
+  size: 245, 227
+  orig: 245, 227
+  offset: 0, 0
+  index: -1
+steam_1
+  rotate: false
+  xy: 1628, 1736
+  size: 268, 223
+  orig: 268, 223
+  offset: 0, 0
+  index: -1
+steam_2
+  rotate: false
+  xy: 1272, 1674
+  size: 243, 243
+  orig: 243, 243
+  offset: 0, 0
+  index: -1
+steam_3
+  rotate: true
+  xy: 1025, 1478
+  size: 210, 227
+  orig: 210, 227
+  offset: 0, 0
+  index: -1
+vindow
+  rotate: false
+  xy: 1025, 1919
+  size: 601, 103
+  orig: 601, 103
+  offset: 0, 0
+  index: -1

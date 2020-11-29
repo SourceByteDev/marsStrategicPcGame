@@ -6,6 +6,7 @@ using Manager;
 using Spine.Unity;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace Game.Units.Unit_Types
 {
@@ -113,7 +114,7 @@ namespace Game.Units.Unit_Types
         {
             while (WorkerMoveParameters.SecondsToCollect > 0)
             {
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(Random.Range(1, 3.2f));
 
                 WorkerMoveParameters.SecondsToCollect--;
             }

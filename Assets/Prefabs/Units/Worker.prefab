@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4670179328809907501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.46177986, y: 0.46177986, z: 0.46177986}
+  m_LocalPosition: {x: -0.033319, y: -0.039888, z: 0}
+  m_LocalScale: {x: 0.40322617, y: 0.40322617, z: 0.40322617}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -180,3 +180,6 @@ MonoBehaviour:
         workerMoveState: 0
         currentSecondsCollect: 0
         maxSecondsToCollect: 0
+      infantryMove:
+        moveState: 0
+    typeUpgrade: 0

@@ -28,10 +28,13 @@ namespace GameUi
             buildingPanel.InActive();
         }
 
-        public void OpenRightPanel(ControlType type)
+        public void OpenRightPanel(ControlType type, bool isOpenOthers)
         {
             InActive();
 
+            if (!isOpenOthers)
+                return;
+            
             var founded = pool.First(x => x.type == type);
 
             if (founded == null)

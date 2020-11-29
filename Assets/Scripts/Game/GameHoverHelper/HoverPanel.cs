@@ -60,6 +60,20 @@ namespace Game.GameHoverHelper
                 
                 texts.Title.text = $"Upgrade {setType} {setVariable}";
             }
+
+            if (parameters.TypePanel == HoverElement.PanelParameters.TypePanelParameters.UpgradeMainHome)
+            {
+                var selectedUnit = UnitSelector.Instance.SelectedUnit;
+
+                if (selectedUnit.gameParameters.IsMaxLevelNow)
+                {
+                    texts.BuildParams.text = "MAX";
+                    
+                    return;
+                }
+                
+                texts.BuildParams.text = $"{selectedUnit.gameParameters.CurrentPriceUpgrade} crystals";
+            }
         }
 
         [Serializable]

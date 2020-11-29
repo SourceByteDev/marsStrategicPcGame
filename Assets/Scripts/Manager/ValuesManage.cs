@@ -20,7 +20,8 @@ namespace Manager
 
         public UnityAction onSomeValueChanged;
 
-        public int CurrentMaxCountWorkers => 5 + values.LiveUnits[0].parameters.currentLevel * 5;
+        public int CurrentMaxCountWorkers => 5 + values.LiveUnits[0].parameters.currentLevel * 5 -
+                                             (2 + values.LiveUnits[0].parameters.currentLevel);
 
         private readonly PathData path = new PathData("values");
 
@@ -76,7 +77,7 @@ namespace Manager
             values.LiveUnits.Clear();
 
             PlayerPrefs.DeleteAll();
-            
+
             UnitUpgrader.DoClear();
 
             print("Reset values");

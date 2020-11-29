@@ -66,9 +66,34 @@ namespace LogicHelper
                 return;
 
             var currentBuilds = unit.gameParameters.currentBuilds;
+
+            var lastUnit = currentBuilds.Last();
+
+            var lastCurrent = Managers.Values.values.CurrentSupply;
+
+            var maxCount = Managers.Values.values.CurrentMaxSupply;
             
-            currentBuilds.RemoveAt(currentBuilds.Count - 1);
+            if (lastUnit.toBuildUnit.parameters.isGiveSupply)
+            {
+                Managers.Values.values.CurrentMaxSupply -= lastUnit.toBuildUnit.parameters.countSupply;
+            }
+            else
+            {
+                Managers.Values.values.CurrentSupply -= lastUnit.toBuildUnit.parameters.countSupply;
+            }
+
+            if (Managers.Values.values.CurrentSupply > Managers.Values.values.CurrentMaxSupply)
+            {
+                Managers.Values.values.CurrentSupply = lastCurrent;
+
+                Managers.Values.values.CurrentMaxSupply = maxCount;
+                
+                return;
+            }
+                
             
+            currentBuilds.Remove(lastUnit);
+
             UnitSelector.Instance.UpdateSelectedUnit();
         }
 

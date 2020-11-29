@@ -23,7 +23,7 @@ MonoBehaviour:
     maxCountToBuild: 0
     pricesLevelUpdate: 9001000084030000
     avatarSet: {fileID: 21300000, guid: 328e53f38b10eb2428f79be3c83abda9, type: 3}
-    unitName: 
+    unitName: Flier
     isRandomPosition: 0
     buildSprite: {fileID: 21300000, guid: fd21c657e56feb34b836a77ae194c5e4, type: 3}
     priceBuild: 60

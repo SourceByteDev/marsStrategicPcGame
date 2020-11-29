@@ -2,37 +2,50 @@
 using System.Collections;
 using Data;
 using Game.Units.Control;
+using Manager;
+using Spine.Unity;
 using UnityEngine;
 
 namespace Game.Units.Unit_Types
 {
+    [RequireComponent(typeof(SkeletonAnimation))]
+    [RequireComponent(typeof(MeshRenderer))]
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class Unit : MonoBehaviour
     {
         public UnitGameParameters gameParameters;
 
-        private Shader normalShader;
+        private Shader _normalShader;
 
-        private Shader outLineShader;
+        private Shader _outLineShader;
 
-        private MeshRenderer meshRenderer;
+        private bool _isSelected;
 
-        private bool isSelected;
+        public MeshRenderer MeshRenderer { get; private set; }
+
+        public SkeletonAnimation SkeletonAnimation { get; private set; }
+        
+        public BoxCollider2D Collider { get; private set; }
 
         public bool IsSelected
         {
-            get => isSelected;
+            get => _isSelected;
             set
             {
-                isSelected = value;
+                _isSelected = value;
 
-                meshRenderer.material.shader = value ? outLineShader : normalShader;
+                MeshRenderer.material.shader = value ? _outLineShader : _normalShader;
             }
         }
 
         public virtual void OnSpawnedSome(BuildUnitParameters unit)
         {
             print("From " + name + " spawned " + unit.toBuildUnit.parameters.unitName);
+        }
+
+        public virtual void OnUpdateIndexLevel(int index, bool isOnNew)
+        {
+            print($"Update {name} for {index} level {isOnNew}");
         }
         
         public void InitParameters(UnitData data)
@@ -47,11 +60,15 @@ namespace Game.Units.Unit_Types
 
         private void Awake()
         {
-            meshRenderer = GetComponent<MeshRenderer>();
+            MeshRenderer = GetComponent<MeshRenderer>();
 
-            normalShader = Shader.Find("Spine/Skeleton");
+            SkeletonAnimation = GetComponent<SkeletonAnimation>();
 
-            outLineShader = Shader.Find("Spine/Outline/Skeleton");
+            Collider = GetComponent<BoxCollider2D>();
+            
+            _normalShader = Shader.Find("Spine/Skeleton");
+
+            _outLineShader = Shader.Find("Spine/Outline/Skeleton");
         }
 
         private void OnMouseDown()
@@ -69,6 +86,7 @@ namespace Game.Units.Unit_Types
         Worker,
         Laboratory,
         Factory,
-        FlyPort
+        FlyPort,
+        WithoutSale
     }
 }

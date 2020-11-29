@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406866508264446884}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5448296, y: 0.5448296, z: 0.5448296}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 0.5448296}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.47895408, y: -0.07500553}
+  m_Offset: {x: 0.49695683, y: -0.84813035}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -144,7 +144,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.302109, y: 5.4100475}
+  m_Size: {x: 4.6633615, y: 3.1540468}
   m_EdgeRadius: 0
 --- !u!114 &2556081586530677261
 MonoBehaviour:
@@ -163,10 +163,39 @@ MonoBehaviour:
     currentHealth: 0
     prefab: {fileID: 0}
     poolType: 0
-    avatar: {fileID: 0}
+    avatarSet: {fileID: 0}
     unitName: 
     startHealth: 0
     currentLevel: 0
     pricesLevelUpgrades: 
     buildSprite: {fileID: 0}
+    countSupply: 0
+    isGiveSupply: 0
+    price: 0
+    isRandomPosition: 0
     currentBuilds: []
+    moveParameters:
+      moveSpeed: 0
+      workerMove:
+        workerMoveState: 0
+        currentSecondsCollect: 0
+        maxSecondsToCollect: 0
+      infantryMove:
+        moveState: 0
+    typeUpgrade: 0
+  visuals:
+  - scale: {x: 0.5448296, y: 0.5448296}
+    meshMaterial: {fileID: 2100000, guid: 613affd4b8630d241bfd71a0bbbfe979, type: 2}
+    skeletonAsset: {fileID: 11400000, guid: ee5b069a50da874428422ae10e8a3190, type: 2}
+    positionOffsetOnSet: {x: 0, y: 0}
+    colliderSize: {x: 10, y: 6}
+  - scale: {x: 1.1, y: 1.1}
+    meshMaterial: {fileID: 2100000, guid: 05d416239081d3a439c984d994bbc885, type: 2}
+    skeletonAsset: {fileID: 11400000, guid: 9af6b56cfbcf5b04eb9a4a7b28ce16c0, type: 2}
+    positionOffsetOnSet: {x: -0.57, y: 0.93}
+    colliderSize: {x: 5, y: 3}
+  - scale: {x: 1.1, y: 1.1}
+    meshMaterial: {fileID: 2100000, guid: 59e4da6fc1ed39044a6b867d99df104f, type: 2}
+    skeletonAsset: {fileID: 11400000, guid: 2415ecda02a04634eb0e97ab074b385c, type: 2}
+    positionOffsetOnSet: {x: 0, y: 0}
+    colliderSize: {x: 5, y: 3}

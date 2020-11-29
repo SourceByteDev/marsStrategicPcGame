@@ -3,6 +3,7 @@ using Data;
 using Game.GameHoverHelper;
 using Game.Units.Control;
 using Game.Units.Unit_Types;
+using GameUi.Message;
 using Manager;
 using UnityEngine;
 
@@ -70,7 +71,12 @@ namespace LogicHelper
 
             // Supply check
             if (Managers.Values.IsSupplyFull(parameters.countSupply) && !parameters.isGiveSupply)
+            {
+                MessageShow.Instance.ShowMessage(MessageShow.TypedMessage.NotEnoughSupply);
+                
                 return;
+            }
+
             // Max count builds check
             if (!CanBeUnitBuild(unitBuild))
                 return;
@@ -79,7 +85,11 @@ namespace LogicHelper
                 return;
             // Check price remove coins
             if (!Managers.Values.values.TryRemoveGems(price))
+            {
+                MessageShow.Instance.ShowMessage(MessageShow.TypedMessage.NotEnoughCrystals);
+                
                 return;
+            }
 
             selectedUnit.gameParameters.currentBuilds.Add(
                 new BuildUnitParameters(parameters.timeBuildSeconds, unitBuild));

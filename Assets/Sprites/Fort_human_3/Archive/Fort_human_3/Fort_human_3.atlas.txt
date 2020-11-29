@@ -1,0 +1,146 @@
+
+skeleton.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+antena
+  rotate: true
+  xy: 1540, 1533
+  size: 64, 88
+  orig: 64, 88
+  offset: 0, 0
+  index: -1
+antena_1
+  rotate: true
+  xy: 1880, 1378
+  size: 65, 145
+  orig: 65, 145
+  offset: 0, 0
+  index: -1
+antena_2
+  rotate: false
+  xy: 1985, 1603
+  size: 31, 26
+  orig: 31, 26
+  offset: 0, 0
+  index: -1
+antena_3
+  rotate: true
+  xy: 2030, 1626
+  size: 38, 16
+  orig: 38, 16
+  offset: 0, 0
+  index: -1
+antena_4
+  rotate: true
+  xy: 2018, 1577
+  size: 38, 20
+  orig: 38, 20
+  offset: 0, 0
+  index: -1
+base
+  rotate: false
+  xy: 2, 1269
+  size: 1021, 777
+  orig: 1021, 777
+  offset: 0, 0
+  index: -1
+cylinder
+  rotate: false
+  xy: 1501, 1119
+  size: 198, 170
+  orig: 198, 170
+  offset: 0, 0
+  index: -1
+cylinder_back
+  rotate: false
+  xy: 1880, 1292
+  size: 112, 84
+  orig: 112, 84
+  offset: 0, 0
+  index: -1
+fan
+  rotate: false
+  xy: 1540, 1599
+  size: 93, 84
+  orig: 93, 84
+  offset: 0, 0
+  index: -1
+lazer
+  rotate: true
+  xy: 1880, 1199
+  size: 91, 103
+  orig: 91, 103
+  offset: 0, 0
+  index: -1
+lazer_1
+  rotate: true
+  xy: 1985, 1631
+  size: 33, 43
+  orig: 33, 43
+  offset: 0, 0
+  index: -1
+legs_3_gen
+  rotate: false
+  xy: 1025, 1685
+  size: 626, 361
+  orig: 626, 361
+  offset: 0, 0
+  index: -1
+legs_back
+  rotate: true
+  xy: 1653, 1291
+  size: 755, 225
+  orig: 755, 225
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 2018, 1617
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+lights
+  rotate: true
+  xy: 1985, 1666
+  size: 380, 61
+  orig: 380, 61
+  offset: 0, 0
+  index: -1
+steam
+  rotate: false
+  xy: 1025, 1231
+  size: 245, 227
+  orig: 245, 227
+  offset: 0, 0
+  index: -1
+steam_1
+  rotate: false
+  xy: 1025, 1460
+  size: 268, 223
+  orig: 268, 223
+  offset: 0, 0
+  index: -1
+steam_2
+  rotate: false
+  xy: 1295, 1440
+  size: 243, 243
+  orig: 243, 243
+  offset: 0, 0
+  index: -1
+steam_3
+  rotate: true
+  xy: 1272, 1228
+  size: 210, 227
+  orig: 210, 227
+  offset: 0, 0
+  index: -1
+vindow
+  rotate: true
+  xy: 1880, 1445
+  size: 601, 103
+  orig: 601, 103
+  offset: 0, 0
+  index: -1
