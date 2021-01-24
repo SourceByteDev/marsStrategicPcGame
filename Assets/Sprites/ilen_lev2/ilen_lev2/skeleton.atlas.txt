@@ -1,0 +1,174 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 665, 897
+  size: 125, 194
+  orig: 125, 194
+  offset: 0, 0
+  index: -1
+claw_1
+  rotate: true
+  xy: 921, 738
+  size: 139, 95
+  orig: 139, 95
+  offset: 0, 0
+  index: -1
+claw_2
+  rotate: false
+  xy: 605, 699
+  size: 37, 91
+  orig: 37, 91
+  offset: 0, 0
+  index: -1
+claw_backdrop_1
+  rotate: false
+  xy: 466, 804
+  size: 144, 79
+  orig: 144, 79
+  offset: 0, 0
+  index: -1
+claw_backdrop_2
+  rotate: false
+  xy: 798, 815
+  size: 60, 80
+  orig: 60, 80
+  offset: 0, 0
+  index: -1
+fist_backdrop
+  rotate: true
+  xy: 860, 654
+  size: 61, 59
+  orig: 61, 59
+  offset: 0, 0
+  index: -1
+foot_2
+  rotate: true
+  xy: 612, 792
+  size: 91, 38
+  orig: 91, 38
+  offset: 0, 0
+  index: -1
+foot_backdrop_2
+  rotate: true
+  xy: 752, 681
+  size: 92, 36
+  orig: 92, 36
+  offset: 0, 0
+  index: -1
+halberd
+  rotate: false
+  xy: 2, 618
+  size: 462, 404
+  orig: 462, 404
+  offset: 0, 0
+  index: -1
+hand_1
+  rotate: false
+  xy: 466, 723
+  size: 137, 79
+  orig: 137, 79
+  offset: 0, 0
+  index: -1
+hand_2
+  rotate: true
+  xy: 466, 630
+  size: 91, 117
+  orig: 91, 117
+  offset: 0, 0
+  index: -1
+hand_backdrop_1
+  rotate: false
+  xy: 644, 676
+  size: 106, 97
+  orig: 106, 97
+  offset: 0, 0
+  index: -1
+hand_backdrop_2
+  rotate: true
+  xy: 921, 612
+  size: 124, 92
+  orig: 124, 92
+  offset: 0, 0
+  index: -1
+head_3
+  rotate: false
+  xy: 790, 610
+  size: 68, 116
+  orig: 68, 116
+  offset: 0, 0
+  index: -1
+jaw_lower_2
+  rotate: true
+  xy: 673, 605
+  size: 69, 79
+  orig: 69, 79
+  offset: 0, 0
+  index: -1
+jaw_upper_1
+  rotate: true
+  xy: 860, 537
+  size: 73, 104
+  orig: 73, 104
+  offset: 0, 0
+  index: -1
+leg_1
+  rotate: false
+  xy: 798, 728
+  size: 48, 85
+  orig: 48, 85
+  offset: 0, 0
+  index: -1
+leg_3
+  rotate: false
+  xy: 921, 879
+  size: 101, 143
+  orig: 101, 143
+  offset: 0, 0
+  index: -1
+leg_4
+  rotate: true
+  xy: 585, 594
+  size: 80, 86
+  orig: 80, 86
+  offset: 0, 0
+  index: -1
+leg_backdrop_1
+  rotate: true
+  xy: 754, 540
+  size: 68, 74
+  orig: 68, 74
+  offset: 0, 0
+  index: -1
+leg_backdrop_3
+  rotate: false
+  xy: 665, 775
+  size: 131, 120
+  orig: 131, 120
+  offset: 0, 0
+  index: -1
+leg_backdrop_4
+  rotate: true
+  xy: 466, 565
+  size: 63, 96
+  orig: 63, 96
+  offset: 0, 0
+  index: -1
+neck_4
+  rotate: true
+  xy: 466, 885
+  size: 137, 197
+  orig: 137, 197
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 861, 717
+  size: 305, 58
+  orig: 305, 58
+  offset: 0, 0
+  index: -1

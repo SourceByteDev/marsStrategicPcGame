@@ -5,6 +5,7 @@ using Game.Units.Control;
 using Manager;
 using Spine.Unity;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Units.Unit_Types
 {
@@ -21,11 +22,15 @@ namespace Game.Units.Unit_Types
 
         private bool _isSelected;
 
+        private ValuesManage.LiveUnitData _myLiveUnitData;
+        
         public MeshRenderer MeshRenderer { get; private set; }
 
         public SkeletonAnimation SkeletonAnimation { get; private set; }
         
         public BoxCollider2D Collider { get; private set; }
+        
+        public UnityAction OnDead { get; set; }
 
         public bool IsSelected
         {
@@ -47,7 +52,34 @@ namespace Game.Units.Unit_Types
         {
             print($"Update {name} for {index} level {isOnNew}");
         }
+
+        public void Damage(int value)
+        {
+            gameParameters.currentHealth -= value;
+
+            _myLiveUnitData.parameters.currentHealth -= value;
+            
+            if (UnitSelector.Instance.SelectedUnit == this)
+                UnitSelector.Instance.UpdateSelectedUnit();
+            
+            if (gameParameters.currentHealth <= 0)
+                Kill();
+        }
         
+        public void Kill()
+        {
+            
+
+            OnDead?.Invoke();
+            
+            if (gameParameters.controlType == ControlType.House)
+            {
+                GameControl.OnGameOver();
+            }
+            
+            UnitSpawner.Instance.RemoveUnit(this);
+        }
+
         public void InitParameters(UnitData data)
         {
             gameParameters = new UnitGameParameters(data);
@@ -69,6 +101,11 @@ namespace Game.Units.Unit_Types
             _normalShader = Shader.Find("Spine/Skeleton");
 
             _outLineShader = Shader.Find("Spine/Outline/Skeleton");
+        }
+
+        private void Start()
+        {
+            _myLiveUnitData = Managers.Values.GetLiveUnitByUnit(this);
         }
 
         private void OnMouseDown()

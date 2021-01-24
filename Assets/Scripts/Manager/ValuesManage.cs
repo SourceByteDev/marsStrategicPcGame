@@ -25,6 +25,8 @@ namespace Manager
 
         private readonly PathData path = new PathData("values");
 
+        public IEnumerable<LiveUnitData> LiveUnits => values.LiveUnits;
+        
         public LiveUnitData GetLiveUnitByUnit(Unit unit)
         {
             var liveUnits = Managers.Values.values.LiveUnits;

@@ -33,6 +33,11 @@ namespace Manager
             FirstLaunch.SetInt(1);
         }
 
+        public static void OnGameOver()
+        {
+            
+        }
+
         private void SpawnSavedUnits()
         {
             var savedUnits = Managers.Values.values.LiveUnits;

@@ -1,0 +1,153 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+belly
+  rotate: false
+  xy: 2, 558
+  size: 263, 172
+  orig: 263, 172
+  offset: 0, 0
+  index: -1
+hand_1
+  rotate: false
+  xy: 653, 458
+  size: 245, 200
+  orig: 245, 200
+  offset: 0, 0
+  index: -1
+hand_2
+  rotate: true
+  xy: 169, 852
+  size: 80, 161
+  orig: 80, 161
+  offset: 0, 0
+  index: -1
+hand_backdrop_1
+  rotate: false
+  xy: 678, 660
+  size: 279, 150
+  orig: 279, 150
+  offset: 0, 0
+  index: -1
+hand_backdrop_2
+  rotate: true
+  xy: 2, 748
+  size: 115, 144
+  orig: 115, 144
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 324, 697
+  size: 195, 123
+  orig: 195, 123
+  offset: 0, 0
+  index: -1
+jaw
+  rotate: false
+  xy: 2, 940
+  size: 65, 53
+  orig: 65, 53
+  offset: 0, 0
+  index: -1
+leg_1
+  rotate: true
+  xy: 521, 679
+  size: 140, 155
+  orig: 140, 155
+  offset: 0, 0
+  index: -1
+leg_2
+  rotate: false
+  xy: 148, 732
+  size: 174, 118
+  orig: 174, 118
+  offset: 0, 0
+  index: -1
+leg_3
+  rotate: false
+  xy: 2, 865
+  size: 165, 72
+  orig: 165, 72
+  offset: 0, 0
+  index: -1
+leg_backdrop_1
+  rotate: false
+  xy: 549, 821
+  size: 166, 102
+  orig: 166, 102
+  offset: 0, 0
+  index: -1
+leg_backdrop_2
+  rotate: true
+  xy: 830, 812
+  size: 111, 163
+  orig: 111, 163
+  offset: 0, 0
+  index: -1
+leg_backdrop_3
+  rotate: false
+  xy: 184, 934
+  size: 155, 59
+  orig: 155, 59
+  offset: 0, 0
+  index: -1
+lip
+  rotate: false
+  xy: 69, 940
+  size: 56, 53
+  orig: 56, 53
+  offset: 0, 0
+  index: -1
+pelvis
+  rotate: false
+  xy: 456, 498
+  size: 195, 179
+  orig: 195, 179
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 341, 925
+  size: 624, 68
+  orig: 624, 68
+  offset: 0, 0
+  index: -1
+shoulders
+  rotate: false
+  xy: 267, 521
+  size: 187, 174
+  orig: 187, 174
+  offset: 0, 0
+  index: -1
+stone
+  rotate: true
+  xy: 127, 939
+  size: 54, 55
+  orig: 54, 55
+  offset: 0, 0
+  index: -1
+stone_1
+  rotate: false
+  xy: 332, 822
+  size: 103, 101
+  orig: 103, 101
+  offset: 0, 0
+  index: -1
+stone_2
+  rotate: false
+  xy: 437, 822
+  size: 110, 101
+  orig: 110, 101
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 717, 813
+  size: 111, 110
+  orig: 111, 110
+  offset: 0, 0
+  index: -1
