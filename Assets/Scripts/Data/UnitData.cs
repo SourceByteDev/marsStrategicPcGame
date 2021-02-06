@@ -18,7 +18,7 @@ namespace Data
         {
             if (parameters == null)
                 return;
-            
+
             if (string.IsNullOrEmpty(parameters.unitName))
                 parameters.unitName = name;
         }
@@ -27,10 +27,12 @@ namespace Data
     [Serializable]
     public class UnitParameters
     {
+        [SerializeField] private bool isEnemy;
+
         [SerializeField] private UnitUpgrader.TypeUpgrade upgradeType;
 
         public PoolType poolType;
-        
+
         public ControlType controlType;
 
         public bool isGiveSupply;
@@ -53,10 +55,8 @@ namespace Data
 
         public bool isRandomPosition;
 
-        [Header("Build add")] 
-        
-        public Sprite buildSprite;
-        
+        [Header("Build add")] public Sprite buildSprite;
+
         public int priceBuild = 100;
 
         public int timeBuildSeconds = 10;
@@ -67,24 +67,39 @@ namespace Data
 
         public int enumerationPrice;
 
-        [Header("Mover parameters")]
-        
-        [SerializeField] private float moveSpeed;
+        [Header("Mover parameters")] [SerializeField]
+        private float moveSpeed;
 
-        [Header("Worker parameters")]
-        
-        [SerializeField] private int secondsToCollect;
-        
+        [Header("Worker parameters")] [SerializeField]
+        private int secondsToCollect;
+
+        [Header("Attacker parameters")] [SerializeField]
+        private float damage;
+
+        [SerializeField] private float shotSpeed = 2;
+
+        public bool IsEnemy => isEnemy;
+
         public float MoveSpeed => moveSpeed;
 
         public int SecondsToCollect => secondsToCollect;
-
+        
         public UnitUpgrader.TypeUpgrade UpgradeType => upgradeType;
+
+        public float Damage => damage;
+
+        public float ShotSpeed => shotSpeed;
     }
 
     [Serializable]
     public class UnitGameParameters
     {
+        [SerializeField] private float shotSpeed;
+
+        [SerializeField] private float damage;
+
+        [SerializeField] private bool isEnemy;
+
         public ControlType controlType;
 
         public int currentHealth;
@@ -112,23 +127,29 @@ namespace Data
         public int price;
 
         public bool isRandomPosition;
-        
+
+        public float ShotSpeed => shotSpeed;
+
+        public float Damage => damage;
+
         public List<BuildUnitParameters> currentBuilds = new List<BuildUnitParameters>();
 
         public MoveParameters moveParameters;
 
         public UnitUpgrader.TypeUpgrade typeUpgrade;
-        
+
         public bool IsMaxLevelNow => currentLevel >= MaxLevel;
 
         public int MaxLevel => pricesLevelUpgrades.Length;
 
         public int CurrentPriceUpgrade => pricesLevelUpgrades[currentLevel];
 
+        public bool IsEnemy => isEnemy;
+
         public UnitGameParameters(UnitData data)
         {
             var parameters = data.parameters;
-            
+
             controlType = parameters.controlType;
 
             currentHealth = parameters.startHealth;
@@ -156,15 +177,21 @@ namespace Data
             isRandomPosition = parameters.isRandomPosition;
 
             typeUpgrade = parameters.UpgradeType;
+
+            damage = parameters.Damage;
+
+            shotSpeed = parameters.ShotSpeed;
             
             moveParameters = new MoveParameters
             {
-                MoveSpeed = parameters.MoveSpeed, 
+                MoveSpeed = parameters.MoveSpeed,
                 WorkerMove = new WorkerMoveParameters(),
                 InfantryMove = new InfantryMoveParameters()
             };
 
             moveParameters.WorkerMove.MaxSecondsToCollect = parameters.SecondsToCollect;
+
+            isEnemy = parameters.IsEnemy;
         }
     }
 
@@ -172,7 +199,7 @@ namespace Data
     public class BuildUnitParameters
     {
         public int currentSeconds;
-        
+
         public int needSeconds;
 
         public UnitData toBuildUnit;
@@ -183,12 +210,12 @@ namespace Data
 
             toBuildUnit = unitToBuild;
         }
-        
+
         public void BuildCurrent()
         {
             UnitProcessBuild.BuildNewFromOther(this);
         }
-        
+
         public void AddSeconds()
         {
             currentSeconds++;
@@ -199,22 +226,22 @@ namespace Data
             }
         }
     }
-    
+
     [Serializable]
     public class MoveParameters
     {
         [SerializeField] private float moveSpeed;
-        
+
         [SerializeField] private WorkerMoveParameters workerMove;
 
         [SerializeField] private InfantryMoveParameters infantryMove;
-        
+
         public float MoveSpeed
         {
             get => moveSpeed;
             set => moveSpeed = value;
         }
-        
+
         public WorkerMoveParameters WorkerMove
         {
             get => workerMove;
@@ -274,14 +301,14 @@ namespace Data
         WaitingTarget,
         Attacking
     }
-    
+
     public enum WorkerMoveState
     {
         GoToGems,
         CollectingGems,
         GoToHome
     }
-    
+
     public enum PoolType
     {
         PlayerBuilding,

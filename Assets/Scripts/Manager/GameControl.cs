@@ -2,6 +2,7 @@
 using Addone;
 using Data;
 using Game.Units.Control;
+using UnityEngine.Events;
 
 namespace Manager
 {
@@ -11,6 +12,10 @@ namespace Manager
         
         private static Variable FirstLaunch => SaveVariables.firstLaunch;
 
+        public UnityAction OnWin { get; set; }
+        
+        public UnityAction OnLose { get; set; }
+        
         [ContextMenu("Reset all")]
         public void ResetAllData()
         {
@@ -35,7 +40,12 @@ namespace Manager
 
         public static void OnGameOver()
         {
-            
+            Managers.GameControl.OnWin?.Invoke();
+        }
+
+        public static void OnGameWin()
+        {
+            Managers.GameControl.OnLose?.Invoke();
         }
 
         private void SpawnSavedUnits()

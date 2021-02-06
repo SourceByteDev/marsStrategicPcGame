@@ -68,13 +68,18 @@ namespace Game.Units.Unit_Types
         
         public void Kill()
         {
-            
-
             OnDead?.Invoke();
             
             if (gameParameters.controlType == ControlType.House)
             {
-                GameControl.OnGameOver();
+                if (gameParameters.IsEnemy)
+                {
+                    GameControl.OnGameOver();
+                }
+                else
+                {
+                    GameControl.OnGameWin();
+                }
             }
             
             UnitSpawner.Instance.RemoveUnit(this);
