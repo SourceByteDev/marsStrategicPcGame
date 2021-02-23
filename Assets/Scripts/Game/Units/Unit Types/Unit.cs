@@ -22,8 +22,6 @@ namespace Game.Units.Unit_Types
 
         private bool _isSelected;
 
-        private ValuesManage.LiveUnitData _myLiveUnitData;
-        
         public MeshRenderer MeshRenderer { get; private set; }
 
         public SkeletonAnimation SkeletonAnimation { get; private set; }
@@ -32,6 +30,10 @@ namespace Game.Units.Unit_Types
         
         public UnityAction OnDead { get; set; }
 
+        public ValuesManage.LiveUnitData MyLiveUnitData { get; private set; }
+
+        private bool IsEnemy => gameParameters.IsEnemy;
+        
         public bool IsSelected
         {
             get => _isSelected;
@@ -56,8 +58,9 @@ namespace Game.Units.Unit_Types
         public void Damage(int value)
         {
             gameParameters.currentHealth -= value;
-
-            _myLiveUnitData.parameters.currentHealth -= value;
+            
+            if (MyLiveUnitData != null)
+                MyLiveUnitData.parameters.currentHealth -= value;
             
             if (UnitSelector.Instance.SelectedUnit == this)
                 UnitSelector.Instance.UpdateSelectedUnit();
@@ -108,9 +111,9 @@ namespace Game.Units.Unit_Types
             _outLineShader = Shader.Find("Spine/Outline/Skeleton");
         }
 
-        private void Start()
+        protected virtual void Start()
         {
-            _myLiveUnitData = Managers.Values.GetLiveUnitByUnit(this);
+            MyLiveUnitData = Managers.Values.GetLiveUnitByUnit(this);
         }
 
         private void OnMouseDown()

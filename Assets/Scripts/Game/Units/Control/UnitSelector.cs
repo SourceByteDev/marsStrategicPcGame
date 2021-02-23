@@ -53,6 +53,9 @@ namespace Game.Units.Control
         
         public void OnUnitNeedSelect(Unit unit)
         {
+            if (unit.gameParameters.IsEnemy)
+                return;
+            
             if (SelectedUnit == unit)
             {
                 // Unselect

@@ -36,16 +36,7 @@ namespace LogicHelper
                 return;
 
             values.values.CurrentGemsCount += Mathf.CeilToInt(parameters.price / 2f);
-            
-            if (parameters.isGiveSupply)
-            {
-                values.values.CurrentMaxSupply -= parameters.countSupply;
-            }
-            else
-            {
-                values.values.CurrentSupply -= parameters.countSupply;
-            }
-            
+
             UnitSelector.Instance.UnSelectUnit();
             
             UnitSpawner.Instance.RemoveUnit(selectedUnit);

@@ -67,6 +67,11 @@ namespace Game.Enemies.Item
                     break;
                 
                 CurrentTarget.Damage(damage);
+                
+                if (CurrentTarget != null)
+                    continue;
+                
+                
             }
         }
     }

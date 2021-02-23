@@ -31,9 +31,22 @@ namespace Game.Units.Control
 
             var foundUnit = Managers.Values.GetLiveUnitByUnit(unit);
 
+            var values = Managers.Values;
+
+            var parameters = unit.gameParameters;
+
             Managers.Values.values.LiveUnits.Remove(foundUnit);
             
             onUnitDestroyed?.Invoke(unit);
+            
+            if (parameters.isGiveSupply)
+            {
+                values.values.CurrentMaxSupply -= parameters.countSupply;
+            }
+            else
+            {
+                values.values.CurrentSupply -= parameters.countSupply;
+            }
             
             Destroy(unit.gameObject);
         }
